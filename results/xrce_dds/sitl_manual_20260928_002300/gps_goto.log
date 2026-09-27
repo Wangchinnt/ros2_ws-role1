@@ -1,0 +1,37 @@
+[INFO] [launch]: All log files can be found below /home/wangchinnt/.ros/log/2026-09-28-00-23-37-418798-rvl-wangchinnt-611671
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gps_goto-1]: process started with pid [611680]
+[gps_goto-1] [INFO] [1790526218.196003848] [gps_goto]: gps_goto: 1 waypoint, takeoff 5.0 m, radius 1.0 m
+[gps_goto-1] [INFO] [1790526218.443573762] [gps_goto]: WP1 GPS (47.3982000, 8.5462000, +10.0 m) -> NED (51.06, 45.64, -9.60), distance 68.2 m
+[gps_goto-1] [INFO] [1790526218.443965147] [gps_goto]: [WAIT_READY] -> [PRE_STREAM]
+[gps_goto-1] [INFO] [1790526219.543953969] [gps_goto]: [PRE_STREAM] -> [ENGAGE]
+[gps_goto-1] [INFO] [1790526220.243398249] [gps_goto]: [ENGAGE] -> [TAKEOFF]
+[gps_goto-1] [INFO] [1790526226.043492441] [gps_goto]: [TAKEOFF] -> [GOTO]
+[gps_goto-1] [INFO] [1790526226.143770808] [gps_goto]: WP1: 68.2 m horizontal, 5.9 m vertical to go
+[gps_goto-1] [INFO] [1790526227.143513872] [gps_goto]: WP1: 65.8 m horizontal, 3.6 m vertical to go
+[gps_goto-1] [INFO] [1790526228.143553963] [gps_goto]: WP1: 56.9 m horizontal, 1.4 m vertical to go
+[gps_goto-1] [INFO] [1790526229.143578126] [gps_goto]: WP1: 46.1 m horizontal, 0.5 m vertical to go
+[gps_goto-1] [INFO] [1790526230.143399996] [gps_goto]: WP1: 34.9 m horizontal, 0.3 m vertical to go
+[gps_goto-1] [INFO] [1790526231.143355902] [gps_goto]: WP1: 23.4 m horizontal, 0.2 m vertical to go
+[gps_goto-1] [INFO] [1790526232.143385196] [gps_goto]: WP1: 11.6 m horizontal, 0.1 m vertical to go
+[gps_goto-1] [INFO] [1790526233.143519436] [gps_goto]: WP1: 2.0 m horizontal, 0.0 m vertical to go
+[gps_goto-1] [INFO] [1790526233.343564726] [gps_goto]: REACHED WP1: current GPS (47.3981943, 8.5461912), error 0.92 m from target
+[gps_goto-1] [INFO] [1790526233.344168222] [gps_goto]: [GOTO] -> [HOLD]
+[gps_goto-1] [INFO] [1790526238.443496532] [gps_goto]: [HOLD] -> [LANDING]
+[gps_goto-1] [INFO] [1790526255.343318476] [gps_goto]: Landed and disarmed. Done.
+[gps_goto-1] [INFO] [1790526255.343977910] [gps_goto]: [LANDING] -> [DONE]
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [gps_goto-1]: sending signal 'SIGINT' to process[gps_goto-1]
+[gps_goto-1] Traceback (most recent call last):
+[gps_goto-1]   File "/home/wangchinnt/coding/UAV/uav_ws/install/uav_nav/lib/uav_nav/gps_goto", line 33, in <module>
+[gps_goto-1]     sys.exit(load_entry_point('uav-nav', 'console_scripts', 'gps_goto')())
+[gps_goto-1]   File "/home/wangchinnt/coding/UAV/uav_ws/build/uav_nav/uav_nav/gps_goto.py", line 305, in main
+[gps_goto-1]     node.destroy_node()
+[gps_goto-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1687, in destroy_node
+[gps_goto-1]     self.destroy_subscription(self._subscriptions[0])
+[gps_goto-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1583, in destroy_subscription
+[gps_goto-1]     subscription.destroy()
+[gps_goto-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/subscription.py", line 80, in destroy
+[gps_goto-1]     self.handle.destroy_when_not_in_use()
+[gps_goto-1] KeyboardInterrupt
+[ERROR] [gps_goto-1]: process has died [pid 611680, exit code -2, cmd '/home/wangchinnt/coding/UAV/uav_ws/install/uav_nav/lib/uav_nav/gps_goto --ros-args -r __node:=gps_goto --params-file /home/wangchinnt/coding/UAV/uav_ws/install/uav_nav/share/uav_nav/config/gps_goto.yaml'].

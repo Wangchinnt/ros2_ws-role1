@@ -1,0 +1,15 @@
+# Fly A -> B -> C, then land. SITL home: 47.397742, 8.545594.
+gps_goto:
+  ros__parameters:
+    # [lat, lon, alt_rel (m above the takeoff point)] concatenated
+    waypoints: [47.398200, 8.546200, 10.0,   # A: ~51 m North, ~46 m East
+                47.398200, 8.545000, 12.0,   # B: ~51 m North, ~45 m West
+                47.397500, 8.545000,  8.0]   # C: ~27 m South, ~45 m West
+    takeoff_alt: 5.0
+    acceptance_radius: 1.0
+    acceptance_alt: 1.0
+    hold_time: 3.0
+    wp_timeout: 90.0
+    max_eph: 3.0
+    max_drift: 3.0          # m, excessive horizontal drift during takeoff -> land
+    land_at_end: true

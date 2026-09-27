@@ -1,0 +1,40 @@
+scenario: gps_loss   wind: none   args: 
+--- gps_goto:
+Projection origin: gp_origin (47.3977408, 8.5455928)
+WP1 GPS (47.3982000, 8.5462000, +10.0 m) -> ENU (E 45.70, N 51.06, U 10.87), distance 68.3 m
+[WAIT_READY] -> [PRE_STREAM]
+[PRE_STREAM] -> [ENGAGE]
+[ENGAGE] -> [TAKEOFF]
+[TAKEOFF] -> [GOTO]
+GPS degraded (fix_type=0, h_acc=100.0 m) -> LAND
+[GOTO] -> [LANDING]
+[mavros_node-1] [ERROR] [1790532378.782449338] [mavros.sys]: FCU: EVENT 3087815 with args -0-64-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-1] [ERROR] [1790532382.591385060] [mavros.sys]: FCU: EVENT 13835193 with args -60-0-126-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-1] [ERROR] [1790532382.591508537] [mavros.sys]: FCU: EVENT 10011251 with args -56-0-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-1] [ERROR] [1790532382.591685481] [mavros.sys]: FCU: EVENT 3087815 with args -0-64-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-1] [ERROR] [1790532382.599106043] [mavros.sys]: FCU: EVENT 14605264 with args -0-0-4-6-8-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-1] [ERROR] [1790532387.611796029] [mavros.sys]: FCU: EVENT 14699175 with args -0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-1] [ERROR] [1790532387.612045385] [mavros.sys]: FCU: EVENT 13835193 with args -60-0-126-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-1] [ERROR] [1790532387.612121009] [mavros.sys]: FCU: EVENT 10011251 with args -56-0-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-1] [ERROR] [1790532387.612270578] [mavros.sys]: FCU: EVENT 3087815 with args -0-64-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-1] [ERROR] [1790532395.268772576] [mavros.sys]: FCU: EVENT 13835193 with args -60-0-126-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-1] [ERROR] [1790532395.268965132] [mavros.sys]: FCU: EVENT 10011251 with args -56-0-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-1] [ERROR] [1790532395.269136865] [mavros.sys]: FCU: EVENT 3087815 with args -0-64-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+Landed and disarmed. Done.
+[LANDING] -> [DONE]
+--- PX4:
+WARN  [init] PX4_GZ_MODEL_NAME or PX4_GZ_MODEL not set using PX4_SIM_MODEL.
+INFO  [commander] LED: open /dev/led0 failed (22)
+INFO  [commander] Ready for takeoff!
+INFO  [commander] Armed by external command	
+INFO  [commander] Takeoff detected	
+WARN  [timesync] RTT too high for timesync: 2308 ms
+WARN  [timesync] RTT too high for timesync: 1720 ms
+WARN  [timesync] RTT too high for timesync: 1132 ms
+WARN  [timesync] RTT too high for timesync: 544 ms
+WARN  [mc_pos_control] invalid setpoints
+WARN  [mc_pos_control] Failsafe: blind land
+WARN  [failsafe] Failsafe activated	
+INFO  [commander] Landing detected	
+INFO  [commander] Disarmed by landing	
+--- conclusion: drone landed and disarmed

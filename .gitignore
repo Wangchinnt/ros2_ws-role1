@@ -1,0 +1,22 @@
+# colcon
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Internal docs (kept locally, not shared)
+docs/
+
+# Personal scratch notes
+note.md
+
+# PX4 binary flight logs (~300 MB); regenerate by re-running the tests
+*.ulg
+
+# Temporary markers left by the test scripts
+.start
+.handoff/

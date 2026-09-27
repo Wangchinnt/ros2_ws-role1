@@ -1,0 +1,31 @@
+scenario: none   wind: 0 0   args: 
+--- gps_goto:
+Projection origin: gp_origin (47.3977440, 8.5455928)
+WP1 GPS (47.3982000, 8.5462000, +10.0 m) -> ENU (E 45.70, N 50.71, U 9.25), distance 68.2 m
+[WAIT_READY] -> [PRE_STREAM]
+[PRE_STREAM] -> [ENGAGE]
+[ENGAGE] -> [TAKEOFF]
+[TAKEOFF] -> [GOTO]
+REACHED WP1: current GPS (47.3981940, 8.5461925), error 0.87 m from target
+[GOTO] -> [HOLD]
+After holding 5 s at WP1: error 1.26 m from target
+[HOLD] -> [LANDING]
+[mavros_node-1] [ERROR] [1790533440.786799695] [mavros.sys]: FCU: EVENT 3087815 with args -0-64-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+Landed and disarmed. Done.
+[LANDING] -> [DONE]
+--- PX4:
+WARN  [init] PX4_GZ_MODEL_NAME or PX4_GZ_MODEL not set using PX4_SIM_MODEL.
+INFO  [commander] LED: open /dev/led0 failed (22)
+WARN  [health_and_arming_checks] Preflight Fail: ekf2 missing data
+WARN  [health_and_arming_checks] Preflight Fail: Compass Sensor 0 missing
+INFO  [commander] Ready for takeoff!
+INFO  [commander] Armed by external command	
+INFO  [commander] Takeoff detected	
+WARN  [timesync] RTT too high for timesync: 1708 ms
+WARN  [timesync] RTT too high for timesync: 1804 ms
+WARN  [timesync] RTT too high for timesync: 1216 ms
+WARN  [timesync] RTT too high for timesync: 628 ms
+WARN  [timesync] RTT too high for timesync: 36 ms
+INFO  [commander] Landing detected	
+INFO  [commander] Disarmed by landing	
+--- conclusion: drone landed and disarmed

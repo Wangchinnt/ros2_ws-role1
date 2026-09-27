@@ -1,0 +1,24 @@
+scenario: kill_node   wind: none   args: 
+--- gps_goto:
+Projection origin: gp_origin (47.3977408, 8.5455912)
+WP1 GPS (47.3982000, 8.5462000, +10.0 m) -> ENU (E 45.82, N 51.06, U 9.51), distance 68.3 m
+[WAIT_READY] -> [PRE_STREAM]
+[PRE_STREAM] -> [ENGAGE]
+[ENGAGE] -> [TAKEOFF]
+[TAKEOFF] -> [GOTO]
+--- PX4:
+WARN  [init] PX4_GZ_MODEL_NAME or PX4_GZ_MODEL not set using PX4_SIM_MODEL.
+INFO  [commander] LED: open /dev/led0 failed (22)
+INFO  [commander] Ready for takeoff!
+INFO  [commander] Armed by external command	
+INFO  [commander] Takeoff detected	
+WARN  [timesync] RTT too high for timesync: 2320 ms
+WARN  [timesync] RTT too high for timesync: 1732 ms
+WARN  [timesync] RTT too high for timesync: 1140 ms
+WARN  [timesync] RTT too high for timesync: 552 ms
+WARN  [failsafe] Failsafe activated	
+ERROR [flight_mode_manager] Matching flight task was not able to run, Nav state: 2, Task: 1
+WARN  [commander] Connection to mission computer lost	
+INFO  [commander] Landing detected	
+INFO  [commander] Disarmed by landing	
+--- conclusion: drone landed and disarmed

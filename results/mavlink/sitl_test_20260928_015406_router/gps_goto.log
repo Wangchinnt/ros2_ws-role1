@@ -1,0 +1,1580 @@
+[INFO] [launch]: All log files can be found below /home/wangchinnt/.ros/log/2026-09-28-01-54-19-482815-rvl-wangchinnt-744242
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [mavlink_router-1]: process started with pid [744250]
+[INFO] [mavros_node-2]: process started with pid [744252]
+[INFO] [gps_goto-3]: process started with pid [744254]
+[mavlink_router-1] mavlink-router version v4
+[mavlink_router-1] Opened UDP Client [5]gcs: 127.0.0.1:14551
+[mavlink_router-1] Opened UDP Client [7]mavros: 127.0.0.1:14640
+[mavlink_router-1] Opened UDP Server [9]px4: 127.0.0.1:14540
+[mavros_node-2] [INFO] [1790531659.669353663] [mavros_node]: Starting mavros_node container
+[mavros_node-2] [INFO] [1790531659.669423717] [mavros_node]: FCU URL: udp://:14640@
+[mavros_node-2] [INFO] [1790531659.669431849] [mavros_node]: GCS URL: 
+[mavros_node-2] [INFO] [1790531659.669436845] [mavros_node]: UAS Prefix: /uas1
+[mavros_node-2] [INFO] [1790531659.669441295] [mavros_node]: Starting mavros router node
+[mavros_node-2] [INFO] [1790531659.675601851] [mavros_router]: Built-in SIMD instructions: SSE, SSE2
+[mavros_node-2] [INFO] [1790531659.675628096] [mavros_router]: Built-in MAVLink package version: 2026.8.8
+[mavros_node-2] [INFO] [1790531659.675634350] [mavros_router]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-2] [INFO] [1790531659.675639385] [mavros_router]: MAVROS Router started
+[mavros_node-2] [INFO] [1790531659.675716033] [mavros_node]: Starting mavros uas node
+[mavros_node-2] [INFO] [1790531659.704648958] [mavros_router]: Requested to add endpoint: type: 0, url: udp://:14640@
+[mavros_node-2] [INFO] [1790531659.704692196] [mavros_router]: Endpoint link[1000] created
+[mavros_node-2] [INFO] [1790531659.704934279] [mavros_router]: link[1000] opened successfully
+[mavros_node-2] [INFO] [1790531659.704946894] [mavros_router]: Requested to add endpoint: type: 2, url: /uas1
+[mavros_node-2] [INFO] [1790531659.704962840] [mavros_router]: Endpoint link[1001] created
+[mavros_node-2] [INFO] [1790531659.706415579] [mavros_router]: link[1001] opened successfully
+[mavros_node-2] [INFO] [1790531659.707224822] [mavros_router]: link[1000] detected remote address 1.1
+[mavros_node-2] [INFO] [1790531659.714769690] [mavros]: UAS Executor started, threads: 4
+[mavros_node-2] [WARN] [1790531659.714788497] [mavros]: plugin_denylist pattern 'image_pub' does not match any declared plugin
+[mavros_node-2] [INFO] [1790531659.734572834] [mavros]: Plugin actuator_control created
+[mavros_node-2] [INFO] [1790531659.734621712] [mavros]: Plugin actuator_control initialized
+[mavros_node-2] [INFO] [1790531659.762563149] [mavros]: Plugin adsb created
+[mavros_node-2] [INFO] [1790531659.762623679] [mavros]: Plugin adsb initialized
+[mavros_node-2] [INFO] [1790531659.766555707] [mavros]: Plugin altitude created
+[mavros_node-2] [INFO] [1790531659.766598438] [mavros]: Plugin altitude initialized
+[mavros_node-2] [INFO] [1790531659.770894982] [mavros]: Plugin cam_imu_sync created
+[mavros_node-2] [INFO] [1790531659.770939195] [mavros]: Plugin cam_imu_sync initialized
+[mavros_node-2] [INFO] [1790531659.775617874] [mavros]: Plugin camera created
+[mavros_node-2] [INFO] [1790531659.775665341] [mavros]: Plugin camera initialized
+[mavros_node-2] [INFO] [1790531659.780177777] [mavros]: Plugin cellular_status created
+[mavros_node-2] [INFO] [1790531659.780215906] [mavros]: Plugin cellular_status initialized
+[mavros_node-2] [INFO] [1790531659.788686578] [mavros]: Plugin command created
+[mavros_node-2] [INFO] [1790531659.788750818] [mavros]: Plugin command initialized
+[mavros_node-2] [INFO] [1790531659.793971927] [mavros]: Plugin companion_process_status created
+[mavros_node-2] [INFO] [1790531659.794007052] [mavros]: Plugin companion_process_status initialized
+[mavros_node-2] [INFO] [1790531659.799761009] [mavros]: Plugin debug_value created
+[mavros_node-2] [INFO] [1790531659.799845537] [mavros]: Plugin debug_value initialized
+[mavros_node-2] [INFO] [1790531659.799885539] [mavros]: Plugin distance_sensor ignored
+[mavros_node-2] [INFO] [1790531659.805815425] [mavros]: Plugin esc_status created
+[mavros_node-2] [INFO] [1790531659.805852611] [mavros]: Plugin esc_status initialized
+[mavros_node-2] [INFO] [1790531659.810923877] [mavros]: Plugin esc_telemetry created
+[mavros_node-2] [INFO] [1790531659.810965037] [mavros]: Plugin esc_telemetry initialized
+[mavros_node-2] [INFO] [1790531659.817924703] [mavros]: Plugin fake_gps created
+[mavros_node-2] [INFO] [1790531659.817963170] [mavros]: Plugin fake_gps initialized
+[mavros_node-2] [INFO] [1790531659.829259662] [mavros]: Plugin ftp created
+[mavros_node-2] [INFO] [1790531659.829330874] [mavros]: Plugin ftp initialized
+[mavros_node-2] [INFO] [1790531659.842956290] [mavros]: Plugin geofence created
+[mavros_node-2] [INFO] [1790531659.843044999] [mavros]: Plugin geofence initialized
+[mavros_node-2] [INFO] [1790531659.866238139] [mavros]: Plugin gimbal_control created
+[mavros_node-2] [INFO] [1790531659.866339596] [mavros]: Plugin gimbal_control initialized
+[mavros_node-2] [INFO] [1790531659.893574989] [mavros]: Plugin global_position created
+[mavros_node-2] [INFO] [1790531659.893663790] [mavros]: Plugin global_position initialized
+[mavros_node-2] [INFO] [1790531659.907321553] [mavros]: Plugin gps_input created
+[mavros_node-2] [INFO] [1790531659.907357573] [mavros]: Plugin gps_input initialized
+[mavros_node-2] [INFO] [1790531659.916222788] [mavros]: Plugin gps_rtk created
+[mavros_node-2] [INFO] [1790531659.916285127] [mavros]: Plugin gps_rtk initialized
+[mavros_node-2] [INFO] [1790531659.924030388] [mavros]: Plugin gps_status created
+[mavros_node-2] [INFO] [1790531659.924070714] [mavros]: Plugin gps_status initialized
+[mavros_node-2] [INFO] [1790531659.933042159] [mavros]: Plugin guided_target created
+[mavros_node-2] [INFO] [1790531659.933086937] [mavros]: Plugin guided_target initialized
+[mavros_node-2] [INFO] [1790531659.945985389] [mavros]: Plugin hil created
+[mavros_node-2] [INFO] [1790531659.946054566] [mavros]: Plugin hil initialized
+[mavros_node-2] [INFO] [1790531659.956521765] [mavros]: Plugin home_position created
+[mavros_node-2] [INFO] [1790531659.956618901] [mavros]: Plugin home_position initialized
+[mavros_node-2] [INFO] [1790531659.969332383] [mavros]: Plugin imu created
+[mavros_node-2] [INFO] [1790531659.969424971] [mavros]: Plugin imu initialized
+[mavros_node-2] [INFO] [1790531659.982264619] [mavros]: Plugin landing_target created
+[mavros_node-2] [INFO] [1790531659.982313781] [mavros]: Plugin landing_target initialized
+[mavros_node-2] [INFO] [1790531659.995452305] [mavros]: Plugin local_position created
+[mavros_node-2] [INFO] [1790531659.995501265] [mavros]: Plugin local_position initialized
+[mavros_node-2] [INFO] [1790531660.010606582] [mavros]: Plugin log_transfer created
+[mavros_node-2] [INFO] [1790531660.010674480] [mavros]: Plugin log_transfer initialized
+[mavros_node-2] [INFO] [1790531660.023165253] [mavros]: Plugin mag_calibration_status created
+[mavros_node-2] [INFO] [1790531660.023224525] [mavros]: Plugin mag_calibration_status initialized
+[mavros_node-2] [INFO] [1790531660.036071819] [mavros]: Plugin manual_control created
+[mavros_node-2] [INFO] [1790531660.036119993] [mavros]: Plugin manual_control initialized
+[mavros_node-2] [INFO] [1790531660.048454861] [mavros]: Plugin mocap_pose_estimate created
+[mavros_node-2] [INFO] [1790531660.048495759] [mavros]: Plugin mocap_pose_estimate initialized
+[mavros_node-2] [INFO] [1790531660.063546145] [mavros]: Plugin mount_control created
+[mavros_node-2] [INFO] [1790531660.063599678] [mavros]: Plugin mount_control initialized
+[mavros_node-2] [INFO] [1790531660.076178979] [mavros]: Plugin nav_controller_output created
+[mavros_node-2] [INFO] [1790531660.076232039] [mavros]: Plugin nav_controller_output initialized
+[mavros_node-2] [INFO] [1790531660.089437489] [mavros]: Plugin obstacle_distance created
+[mavros_node-2] [INFO] [1790531660.089508472] [mavros]: Plugin obstacle_distance initialized
+[mavros_node-2] [INFO] [1790531660.105346062] [mavros]: Plugin obstacle_distance_3d created
+[mavros_node-2] [INFO] [1790531660.105385589] [mavros]: Plugin obstacle_distance_3d initialized
+[mavros_node-2] [INFO] [1790531660.120530927] [mavros]: Plugin odometry created
+[mavros_node-2] [INFO] [1790531660.120574786] [mavros]: Plugin odometry initialized
+[mavros_node-2] [INFO] [1790531660.133317622] [mavros]: Plugin onboard_computer_status created
+[mavros_node-2] [INFO] [1790531660.133355183] [mavros]: Plugin onboard_computer_status initialized
+[mavros_node-2] [INFO] [1790531660.149025394] [mavros]: Plugin open_drone_id created
+[mavros_node-2] [INFO] [1790531660.149064103] [mavros]: Plugin open_drone_id initialized
+[mavros_node-2] [INFO] [1790531660.164476890] [mavros]: Plugin optical_flow created
+[mavros_node-2] [INFO] [1790531660.164522688] [mavros]: Plugin optical_flow initialized
+[mavros_node-2] [INFO] [1790531660.181276958] [mavros]: Plugin param created
+[mavros_node-2] [INFO] [1790531660.181325611] [mavros]: Plugin param initialized
+[mavros_node-2] [INFO] [1790531660.197818464] [mavros]: Plugin play_tune created
+[mavros_node-2] [INFO] [1790531660.197885128] [mavros]: Plugin play_tune initialized
+[mavros_node-2] [INFO] [1790531660.215326582] [mavros]: Plugin px4flow created
+[mavros_node-2] [INFO] [1790531660.215481834] [mavros]: Plugin px4flow initialized
+[mavros_node-2] [INFO] [1790531660.237499286] [mavros]: Plugin rallypoint created
+[mavros_node-2] [INFO] [1790531660.237572356] [mavros]: Plugin rallypoint initialized
+[mavros_node-2] [INFO] [1790531660.237593024] [mavros]: Plugin rangefinder ignored
+[mavros_node-2] [INFO] [1790531660.255742876] [mavros]: Plugin rc_io created
+[mavros_node-2] [INFO] [1790531660.255848681] [mavros]: Plugin rc_io initialized
+[mavros_node-2] [INFO] [1790531660.272230062] [mavros]: Plugin setpoint_accel created
+[mavros_node-2] [INFO] [1790531660.272275865] [mavros]: Plugin setpoint_accel initialized
+[mavros_node-2] [INFO] [1790531660.290714470] [mavros]: Plugin setpoint_attitude created
+[mavros_node-2] [INFO] [1790531660.290749396] [mavros]: Plugin setpoint_attitude initialized
+[mavros_node-2] [INFO] [1790531660.310604216] [mavros]: Plugin setpoint_position created
+[mavros_node-2] [INFO] [1790531660.310704567] [mavros]: Plugin setpoint_position initialized
+[mavros_node-2] [INFO] [1790531660.333332854] [mavros]: Plugin setpoint_raw created
+[mavros_node-2] [INFO] [1790531660.333390585] [mavros]: Plugin setpoint_raw initialized
+[mavros_node-2] [INFO] [1790531660.368659111] [mavros]: Plugin setpoint_trajectory created
+[mavros_node-2] [INFO] [1790531660.368706785] [mavros]: Plugin setpoint_trajectory initialized
+[mavros_node-2] [INFO] [1790531660.394858040] [mavros]: Plugin setpoint_velocity created
+[mavros_node-2] [INFO] [1790531660.394935614] [mavros]: Plugin setpoint_velocity initialized
+[mavros_node-2] [INFO] [1790531660.425459317] [mavros]: Plugin sim_state created
+[mavros_node-2] [INFO] [1790531660.425527789] [mavros]: Plugin sim_state initialized
+[mavros_node-2] [INFO] [1790531660.460857187] [mavros]: Plugin sys_status created
+[mavros_node-2] [INFO] [1790531660.460931610] [mavros]: Plugin sys_status initialized
+[mavros_node-2] [INFO] [1790531660.484363870] [mavros.time]: TM: Timesync mode: MAVLINK
+[mavros_node-2] [INFO] [1790531660.490835137] [mavros]: Plugin sys_time created
+[mavros_node-2] [INFO] [1790531660.490883433] [mavros]: Plugin sys_time initialized
+[gps_goto-3] [INFO] [1790531660.511687944] [gps_goto]: gps_goto (MAVLink/MAVROS): 1 waypoint, takeoff 5.0 m, radius 1.0 m
+[mavros_node-2] [INFO] [1790531660.511918249] [mavros]: Plugin tdr_radio created
+[mavros_node-2] [INFO] [1790531660.511965267] [mavros]: Plugin tdr_radio initialized
+[mavros_node-2] [INFO] [1790531660.535512126] [mavros]: Plugin terrain created
+[mavros_node-2] [INFO] [1790531660.535562939] [mavros]: Plugin terrain initialized
+[mavros_node-2] [INFO] [1790531660.555874457] [mavros]: Plugin trajectory created
+[mavros_node-2] [INFO] [1790531660.555927969] [mavros]: Plugin trajectory initialized
+[mavros_node-2] [INFO] [1790531660.577089579] [mavros]: Plugin tunnel created
+[mavros_node-2] [INFO] [1790531660.577188009] [mavros]: Plugin tunnel initialized
+[mavros_node-2] [INFO] [1790531660.602043698] [mavros]: Plugin vfr_hud created
+[mavros_node-2] [INFO] [1790531660.602139168] [mavros]: Plugin vfr_hud initialized
+[mavros_node-2] [INFO] [1790531660.602157335] [mavros]: Plugin vibration ignored
+[mavros_node-2] [INFO] [1790531660.626749241] [mavros]: Plugin vision_pose created
+[mavros_node-2] [INFO] [1790531660.626784023] [mavros]: Plugin vision_pose initialized
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 418 24KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 418 24KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 1 0% 0KB
+[mavlink_router-1] 		Sequence lost: 1 0%
+[mavlink_router-1] 		Handled: 418 24KB
+[mavlink_router-1] 		Total: 420
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 0 0KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavros_node-2] [INFO] [1790531660.652345056] [mavros]: Plugin vision_speed created
+[mavros_node-2] [INFO] [1790531660.652398455] [mavros]: Plugin vision_speed initialized
+[mavros_node-2] [INFO] [1790531660.685857605] [mavros]: Plugin waypoint created
+[mavros_node-2] [INFO] [1790531660.686245908] [mavros]: Plugin waypoint initialized
+[mavros_node-2] [INFO] [1790531660.686287302] [mavros]: Plugin wheel_odometry ignored
+[mavros_node-2] [INFO] [1790531660.708261462] [mavros]: Plugin wind_estimation created
+[mavros_node-2] [INFO] [1790531660.708304676] [mavros]: Plugin wind_estimation initialized
+[mavros_node-2] [INFO] [1790531660.710628837] [mavros]: Built-in SIMD instructions: SSE, SSE2
+[mavros_node-2] [INFO] [1790531660.710657409] [mavros]: Built-in MAVLink package version: 2026.8.8
+[mavros_node-2] [INFO] [1790531660.710663894] [mavros]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-2] [INFO] [1790531660.710669186] [mavros]: MAVROS UAS via /uas1 started. MY ID 1.191, TARGET ID 1.1
+[mavros_node-2] [INFO] [1790531660.717385865] [mavros.imu]: IMU: High resolution IMU detected!
+[mavros_node-2] [INFO] [1790531660.724981080] [mavros.imu]: IMU: Attitude quaternion IMU detected!
+[mavros_node-2] [INFO] [1790531660.777479147] [mavros_router]: link[1001] detected remote address 1.191
+[mavros_node-2] [WARN] [1790531661.466612241] [mavros.cmd]: CMD: Unexpected command 512, result 4
+[mavros_node-2] [INFO] [1790531661.588087588] [mavros]: CON: Got HEARTBEAT, connected. FCU: PX4 Autopilot
+[mavros_node-2] [INFO] [1790531661.588259973] [mavros.mission]: WP: detected enable_partial_push: 0
+[mavros_node-2] [INFO] [1790531661.588470175] [mavros.imu]: IMU: High resolution IMU detected!
+[mavros_node-2] [INFO] [1790531661.588801056] [mavros.imu]: IMU: Attitude quaternion IMU detected!
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 841 48KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 11 0KB
+[mavlink_router-1] 		Total: 11
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 831 48KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 2 0% 0KB
+[mavlink_router-1] 		Sequence lost: 2 0%
+[mavlink_router-1] 		Handled: 831 48KB
+[mavlink_router-1] 		Total: 835
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 11 0KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[gps_goto-3] [INFO] [1790531662.471405287] [gps_goto]: Waiting for ready: connected=True pose=True global=True gps_fix=3 eph=0.7 origin=False
+[gps_goto-3] [INFO] [1790531662.521141185] [gps_goto]: Projection origin: gp_origin (47.3977408, 8.5455944)
+[gps_goto-3] [INFO] [1790531662.521597540] [gps_goto]: WP1 GPS (47.3982000, 8.5462000, +10.0 m) -> ENU (E 45.58, N 51.06, U 10.70), distance 68.2 m
+[gps_goto-3] [INFO] [1790531662.521956323] [gps_goto]: [WAIT_READY] -> [PRE_STREAM]
+[mavros_node-2] [WARN] [1790531662.536654251] [mavros.sys]: FCU: UNK(8): EVENT 11047904 with args -0-0-0-0-0-128-0-0-0-240-123-255-255-240-123-255-255-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-2] [INFO] [1790531662.536838542] [mavros.sys]: FCU: EVENT 377561 with args -8-0-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-2] [WARN] [1790531662.536917193] [mavros.sys]: FCU: EVENT 453929 with args -255-255-255-255-7-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-2] [INFO] [1790531662.536972232] [mavros.sys]: FCU: EVENT 6801787 with args -255-255-255-255-12-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-2] [WARN] [1790531662.537020368] [mavros.sys]: FCU: UNK(8): EVENT 1914663 with args -0-10-9-2-40-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1280 74KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 27 0KB
+[mavlink_router-1] 		Total: 27
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1260 73KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 3 0% 0KB
+[mavlink_router-1] 		Sequence lost: 3 0%
+[mavlink_router-1] 		Handled: 1260 73KB
+[mavlink_router-1] 		Total: 1266
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 27 0KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[gps_goto-3] [INFO] [1790531663.570629882] [gps_goto]: [PRE_STREAM] -> [ENGAGE]
+[mavros_node-2] [WARN] [1790531663.601785881] [mavros.sys]: VER: broadcast request timeout, retries left 4
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1707 98KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 59 2KB
+[mavlink_router-1] 		Total: 59
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1676 98KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 4 0% 0KB
+[mavlink_router-1] 		Sequence lost: 4 0%
+[mavlink_router-1] 		Handled: 1676 98KB
+[mavlink_router-1] 		Total: 1684
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 59 2KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavros_node-2] [WARN] [1790531664.602281481] [mavros.sys]: VER: broadcast request timeout, retries left 3
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 2136 123KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 92 4KB
+[mavlink_router-1] 		Total: 92
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 2095 122KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 5 0% 0KB
+[mavlink_router-1] 		Sequence lost: 5 0%
+[mavlink_router-1] 		Handled: 2095 122KB
+[mavlink_router-1] 		Total: 2105
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 92 4KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavros_node-2] [INFO] [1790531665.482174210] [mavros.sys]: FCU: EVENT 9489139 with args -4-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-2] [INFO] [1790531665.603626366] [mavros.geofence]: GF: Using MISSION_ITEM_INT
+[mavros_node-2] [INFO] [1790531665.603683144] [mavros.rallypoint]: RP: Using MISSION_ITEM_INT
+[mavros_node-2] [INFO] [1790531665.603703068] [mavros.mission]: WP: Using MISSION_ITEM_INT
+[mavros_node-2] [INFO] [1790531665.603730885] [mavros.sys]: VER: 1.1: Capabilities         0x000000000000ecff
+[mavros_node-2] [INFO] [1790531665.603748711] [mavros.sys]: VER: 1.1: Flight software:     010e00ff (b8c541dd72000000)
+[mavros_node-2] [INFO] [1790531665.603762005] [mavros.sys]: VER: 1.1: Middleware software: 010e00ff (b8c541dd72000000)
+[mavros_node-2] [INFO] [1790531665.603777075] [mavros.sys]: VER: 1.1: OS software:         060800ff (de41e7feaeffaec3)
+[mavros_node-2] [INFO] [1790531665.603791301] [mavros.sys]: VER: 1.1: Board hardware:      00000001
+[mavros_node-2] [INFO] [1790531665.603804876] [mavros.sys]: VER: 1.1: VID/PID:             0000:0000
+[mavros_node-2] [INFO] [1790531665.603816725] [mavros.sys]: VER: 1.1: UID:                 4954414c44494e4f
+[mavros_node-2] [WARN] [1790531665.611407301] [mavros.sys]: VER: unicast request timeout, retries left 2
+[gps_goto-3] [INFO] [1790531665.620782521] [gps_goto]: [ENGAGE] -> [TAKEOFF]
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 2562 148KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 125 5KB
+[mavlink_router-1] 		Total: 125
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 2512 146KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 6 0% 0KB
+[mavlink_router-1] 		Sequence lost: 6 0%
+[mavlink_router-1] 		Handled: 2512 146KB
+[mavlink_router-1] 		Total: 2524
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 125 5KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 2990 173KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 156 7KB
+[mavlink_router-1] 		Total: 156
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 2929 171KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 7 0% 0KB
+[mavlink_router-1] 		Sequence lost: 7 0%
+[mavlink_router-1] 		Handled: 2929 171KB
+[mavlink_router-1] 		Total: 2943
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 156 7KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavros_node-2] [INFO] [1790531667.290625130] [mavros.sys]: FCU: EVENT 4277609 with args -0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 3419 198KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 187 8KB
+[mavlink_router-1] 		Total: 187
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 3347 196KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 8 0% 0KB
+[mavlink_router-1] 		Sequence lost: 8 0%
+[mavlink_router-1] 		Handled: 3347 196KB
+[mavlink_router-1] 		Total: 3363
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 187 8KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 3849 223KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 218 10KB
+[mavlink_router-1] 		Total: 218
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 3766 221KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 9 0% 0KB
+[mavlink_router-1] 		Sequence lost: 9 0%
+[mavlink_router-1] 		Handled: 3766 221KB
+[mavlink_router-1] 		Total: 3784
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 218 10KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 4253 247KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 248 12KB
+[mavlink_router-1] 		Total: 248
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 4160 245KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 9 0% 0KB
+[mavlink_router-1] 		Sequence lost: 9 0%
+[mavlink_router-1] 		Handled: 4160 245KB
+[mavlink_router-1] 		Total: 4178
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 248 12KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 4679 272KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 279 13KB
+[mavlink_router-1] 		Total: 279
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 4575 269KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 10 0% 0KB
+[mavlink_router-1] 		Sequence lost: 10 0%
+[mavlink_router-1] 		Handled: 4575 269KB
+[mavlink_router-1] 		Total: 4595
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 279 13KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[gps_goto-3] [INFO] [1790531671.270976415] [gps_goto]: [TAKEOFF] -> [GOTO]
+[gps_goto-3] [INFO] [1790531671.470886918] [gps_goto]: WP1: 68.1 m horizontal, 5.9 m vertical to go
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 5171 299KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 311 15KB
+[mavlink_router-1] 		Total: 311
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 5056 296KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 11 0% 0KB
+[mavlink_router-1] 		Sequence lost: 11 0%
+[mavlink_router-1] 		Handled: 5056 296KB
+[mavlink_router-1] 		Total: 5078
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 311 15KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[gps_goto-3] [INFO] [1790531672.471079069] [gps_goto]: WP1: 67.9 m horizontal, 5.3 m vertical to go
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 6475 357KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 334 16KB
+[mavlink_router-1] 		Total: 334
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 6357 354KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 12 0% 0KB
+[mavlink_router-1] 		Sequence lost: 267 4%
+[mavlink_router-1] 		Handled: 6357 354KB
+[mavlink_router-1] 		Total: 6636
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 334 16KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[gps_goto-3] [INFO] [1790531673.470936281] [gps_goto]: WP1: 67.2 m horizontal, 4.5 m vertical to go
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 6896 382KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 355 17KB
+[mavlink_router-1] 		Total: 355
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 6777 379KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 13 0% 0KB
+[mavlink_router-1] 		Sequence lost: 268 3%
+[mavlink_router-1] 		Handled: 6777 379KB
+[mavlink_router-1] 		Total: 7058
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 355 17KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[gps_goto-3] [INFO] [1790531674.470689829] [gps_goto]: WP1: 65.8 m horizontal, 3.5 m vertical to go
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 7314 406KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 379 19KB
+[mavlink_router-1] 		Total: 379
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 7191 403KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 14 0% 0KB
+[mavlink_router-1] 		Sequence lost: 269 3%
+[mavlink_router-1] 		Handled: 7191 403KB
+[mavlink_router-1] 		Total: 7474
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 379 19KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[gps_goto-3] [INFO] [1790531675.470697354] [gps_goto]: WP1: 34.0 m horizontal, 0.2 m vertical to go
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 7764 432KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 432 21KB
+[mavlink_router-1] 		Total: 432
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 7608 428KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 15 0% 0KB
+[mavlink_router-1] 		Sequence lost: 270 3%
+[mavlink_router-1] 		Handled: 7608 428KB
+[mavlink_router-1] 		Total: 7893
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 432 21KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavros_node-2] [WARN] [1790531675.822352008] [mavros.param]: PR: request param #190 timeout, retries left 2, and 346 params still missing
+[gps_goto-3] [INFO] [1790531676.471046926] [gps_goto]: WP1: 22.4 m horizontal, 0.2 m vertical to go
+[mavros_node-2] [INFO] [1790531676.589369428] [mavros.mission]: WP: mission received
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 8538 470KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 811 28KB
+[mavlink_router-1] 		Total: 811
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 8372 466KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 16 0% 0KB
+[mavlink_router-1] 		Sequence lost: 271 3%
+[mavlink_router-1] 		Handled: 8372 466KB
+[mavlink_router-1] 		Total: 8659
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 811 28KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[gps_goto-3] [INFO] [1790531677.470621674] [gps_goto]: WP1: 10.6 m horizontal, 0.1 m vertical to go
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 8968 495KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 842 30KB
+[mavlink_router-1] 		Total: 842
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 8791 491KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 17 0% 0KB
+[mavlink_router-1] 		Sequence lost: 272 2%
+[mavlink_router-1] 		Handled: 8791 491KB
+[mavlink_router-1] 		Total: 9080
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 842 30KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[gps_goto-3] [INFO] [1790531678.471034458] [gps_goto]: WP1: 1.7 m horizontal, 0.0 m vertical to go
+[gps_goto-3] [INFO] [1790531678.620642548] [gps_goto]: REACHED WP1: current GPS (47.3981943, 8.5461931), error 0.82 m from target
+[gps_goto-3] [INFO] [1790531678.621100274] [gps_goto]: [GOTO] -> [HOLD]
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 9393 520KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 873 31KB
+[mavlink_router-1] 		Total: 873
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 9205 515KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 18 0% 0KB
+[mavlink_router-1] 		Sequence lost: 273 2%
+[mavlink_router-1] 		Handled: 9205 515KB
+[mavlink_router-1] 		Total: 9496
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 873 31KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 9822 545KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 904 33KB
+[mavlink_router-1] 		Total: 904
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 9623 540KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 19 0% 0KB
+[mavlink_router-1] 		Sequence lost: 274 2%
+[mavlink_router-1] 		Handled: 9623 540KB
+[mavlink_router-1] 		Total: 9916
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 904 33KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 10249 570KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 935 34KB
+[mavlink_router-1] 		Total: 935
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 10039 565KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 20 0% 0KB
+[mavlink_router-1] 		Sequence lost: 275 2%
+[mavlink_router-1] 		Handled: 10039 565KB
+[mavlink_router-1] 		Total: 10334
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 935 34KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavros_node-2] [INFO] [1790531681.588510802] [mavros.rallypoint]: RP: mission received
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 10677 595KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 968 36KB
+[mavlink_router-1] 		Total: 968
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 10457 590KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 21 0% 0KB
+[mavlink_router-1] 		Sequence lost: 276 2%
+[mavlink_router-1] 		Handled: 10457 590KB
+[mavlink_router-1] 		Total: 10754
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 968 36KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 11105 620KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 999 37KB
+[mavlink_router-1] 		Total: 999
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 10874 614KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 22 0% 0KB
+[mavlink_router-1] 		Sequence lost: 277 2%
+[mavlink_router-1] 		Handled: 10874 614KB
+[mavlink_router-1] 		Total: 11173
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 999 37KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 11534 645KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1030 39KB
+[mavlink_router-1] 		Total: 1030
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 11292 639KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 23 0% 0KB
+[mavlink_router-1] 		Sequence lost: 278 2%
+[mavlink_router-1] 		Handled: 11292 639KB
+[mavlink_router-1] 		Total: 11593
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1030 39KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[gps_goto-3] [INFO] [1790531683.671153846] [gps_goto]: After holding 5 s at WP1: error 0.30 m from target
+[gps_goto-3] [INFO] [1790531683.671857442] [gps_goto]: [HOLD] -> [LANDING]
+[mavros_node-2] [WARN] [1790531683.677417997] [mavros.cmd]: CMD: Unexpected command 176, result 0
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 11971 671KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1043 39KB
+[mavlink_router-1] 		Total: 1043
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 11719 665KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 24 0% 0KB
+[mavlink_router-1] 		Sequence lost: 279 2%
+[mavlink_router-1] 		Handled: 11719 665KB
+[mavlink_router-1] 		Total: 12022
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1043 39KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavros_node-2] [WARN] [1790531684.776172366] [mavros.sys]: FCU: UNK(8): EVENT 11047904 with args -0-0-0-16-0-128-0-0-0-240-59-255-255-240-59-255-255-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-2] [INFO] [1790531684.776325030] [mavros.sys]: FCU: EVENT 377561 with args -8-0-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-2] [ERROR] [1790531684.776378263] [mavros.sys]: FCU: EVENT 3087815 with args -0-64-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-2] [WARN] [1790531684.776440452] [mavros.sys]: FCU: EVENT 453929 with args -255-255-255-255-7-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-2] [INFO] [1790531684.776484916] [mavros.sys]: FCU: EVENT 6801787 with args -255-255-255-255-12-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavros_node-2] [WARN] [1790531684.776525717] [mavros.sys]: FCU: UNK(8): EVENT 1914663 with args -0-10-9-2-40-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 12404 696KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1053 40KB
+[mavlink_router-1] 		Total: 1053
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 12142 690KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 25 0% 0KB
+[mavlink_router-1] 		Sequence lost: 280 2%
+[mavlink_router-1] 		Handled: 12142 690KB
+[mavlink_router-1] 		Total: 12447
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1053 40KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavros_node-2] [INFO] [1790531686.587624728] [mavros.geofence]: GF: mission received
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 12841 722KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1066 40KB
+[mavlink_router-1] 		Total: 1066
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 12569 715KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 26 0% 0KB
+[mavlink_router-1] 		Sequence lost: 281 2%
+[mavlink_router-1] 		Handled: 12569 715KB
+[mavlink_router-1] 		Total: 12876
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1066 40KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 13282 748KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1077 40KB
+[mavlink_router-1] 		Total: 1077
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 12999 741KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 27 0% 0KB
+[mavlink_router-1] 		Sequence lost: 282 2%
+[mavlink_router-1] 		Handled: 12999 741KB
+[mavlink_router-1] 		Total: 13308
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1077 40KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 13717 773KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1088 40KB
+[mavlink_router-1] 		Total: 1088
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 13423 766KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 28 0% 1KB
+[mavlink_router-1] 		Sequence lost: 283 2%
+[mavlink_router-1] 		Handled: 13423 766KB
+[mavlink_router-1] 		Total: 13734
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1088 40KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 14159 799KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1099 41KB
+[mavlink_router-1] 		Total: 1099
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 13854 791KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 29 0% 1KB
+[mavlink_router-1] 		Sequence lost: 284 2%
+[mavlink_router-1] 		Handled: 13854 791KB
+[mavlink_router-1] 		Total: 14167
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1099 41KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 14595 825KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1110 41KB
+[mavlink_router-1] 		Total: 1110
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 14279 817KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 30 0% 1KB
+[mavlink_router-1] 		Sequence lost: 285 1%
+[mavlink_router-1] 		Handled: 14279 817KB
+[mavlink_router-1] 		Total: 14594
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1110 41KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 15034 850KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1121 41KB
+[mavlink_router-1] 		Total: 1121
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 14707 842KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 31 0% 1KB
+[mavlink_router-1] 		Sequence lost: 286 1%
+[mavlink_router-1] 		Handled: 14707 842KB
+[mavlink_router-1] 		Total: 15024
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1121 41KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 15470 876KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1132 42KB
+[mavlink_router-1] 		Total: 1132
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 15132 867KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 32 0% 1KB
+[mavlink_router-1] 		Sequence lost: 287 1%
+[mavlink_router-1] 		Handled: 15132 867KB
+[mavlink_router-1] 		Total: 15451
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1132 42KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 15908 902KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1143 42KB
+[mavlink_router-1] 		Total: 1143
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 15559 893KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 33 0% 1KB
+[mavlink_router-1] 		Sequence lost: 288 1%
+[mavlink_router-1] 		Handled: 15559 893KB
+[mavlink_router-1] 		Total: 15880
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1143 42KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 16346 927KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1154 42KB
+[mavlink_router-1] 		Total: 1154
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 15986 918KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 34 0% 1KB
+[mavlink_router-1] 		Sequence lost: 289 1%
+[mavlink_router-1] 		Handled: 15986 918KB
+[mavlink_router-1] 		Total: 16309
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1154 42KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 16785 953KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1165 42KB
+[mavlink_router-1] 		Total: 1165
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 16414 944KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 35 0% 1KB
+[mavlink_router-1] 		Sequence lost: 290 1%
+[mavlink_router-1] 		Handled: 16414 944KB
+[mavlink_router-1] 		Total: 16739
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1165 42KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 17221 978KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1176 43KB
+[mavlink_router-1] 		Total: 1176
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 16839 969KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 36 0% 1KB
+[mavlink_router-1] 		Sequence lost: 291 1%
+[mavlink_router-1] 		Handled: 16839 969KB
+[mavlink_router-1] 		Total: 17166
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1176 43KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 17660 1004KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1187 43KB
+[mavlink_router-1] 		Total: 1187
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 17267 994KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 37 0% 1KB
+[mavlink_router-1] 		Sequence lost: 292 1%
+[mavlink_router-1] 		Handled: 17267 994KB
+[mavlink_router-1] 		Total: 17596
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1187 43KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavros_node-2] [INFO] [1790531698.523493938] [mavros.sys]: FCU: EVENT 9844908 with args -0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 18100 1030KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1198 43KB
+[mavlink_router-1] 		Total: 1198
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 17696 1020KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 38 0% 1KB
+[mavlink_router-1] 		Sequence lost: 293 1%
+[mavlink_router-1] 		Handled: 17696 1020KB
+[mavlink_router-1] 		Total: 18027
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1198 43KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 18538 1056KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1209 43KB
+[mavlink_router-1] 		Total: 1209
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 18123 1045KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 39 0% 1KB
+[mavlink_router-1] 		Sequence lost: 294 1%
+[mavlink_router-1] 		Handled: 18123 1045KB
+[mavlink_router-1] 		Total: 18456
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1209 43KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavros_node-2] [INFO] [1790531700.534452908] [mavros.sys]: FCU: EVENT 16017271 with args -6-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+[mavlink_router-1] UDP Endpoint [5]gcs {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 0 0KB
+[mavlink_router-1] 		Total: 0
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 18974 1081KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [7]mavros {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 0 0% 0KB
+[mavlink_router-1] 		Sequence lost: 0 0%
+[mavlink_router-1] 		Handled: 1220 44KB
+[mavlink_router-1] 		Total: 1220
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 18548 1071KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[mavlink_router-1] UDP Endpoint [9]px4 {
+[mavlink_router-1] 	Received messages {
+[mavlink_router-1] 		CRC error: 40 0% 1KB
+[mavlink_router-1] 		Sequence lost: 295 1%
+[mavlink_router-1] 		Handled: 18548 1071KB
+[mavlink_router-1] 		Total: 18883
+[mavlink_router-1] 	}
+[mavlink_router-1] 	Transmitted messages {
+[mavlink_router-1] 		Total: 1220 44KB
+[mavlink_router-1] 	}
+[mavlink_router-1] }
+[gps_goto-3] [INFO] [1790531700.870462966] [gps_goto]: Landed and disarmed. Done.
+[gps_goto-3] [INFO] [1790531700.871001969] [gps_goto]: [LANDING] -> [DONE]
+[INFO] [gps_goto-3]: process has finished cleanly [pid 744254]
+[INFO] [mavros_node-2]: sending signal 'SIGINT' to process[mavros_node-2]
+[INFO] [mavlink_router-1]: sending signal 'SIGINT' to process[mavlink_router-1]
+[mavros_node-2] [INFO] [1790531701.030836171] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[mavros_node-2] [WARN] [1790531701.031616188] [mavros]: UAS Executor terminated
+[INFO] [mavlink_router-1]: process has finished cleanly [pid 744250]
+[INFO] [mavros_node-2]: process has finished cleanly [pid 744252]
