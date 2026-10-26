@@ -28,7 +28,7 @@ from mavros_msgs.msg import GPSRAW, State
 from mavros_msgs.srv import CommandBool, CommandLong, SetMode
 from sensor_msgs.msg import NavSatFix
 
-from uav_nav.geo import haversine, MapProjection
+from uav_nav.geo import haversine, MapProjection, origin_lat_lon
 
 RATE_HZ = 20.0
 PRE_STREAM_SEC = 1.0      # PX4 only enters Offboard once setpoints are streaming
@@ -47,7 +47,7 @@ class GpsGoto(Node):
         # Every parameter has a default (works on both Foxy and Humble).
         # waypoints: flat list [lat, lon, alt_rel, lat, lon, alt_rel, ...],
         # alt_rel = altitude (m) relative to the takeoff point.
-        self.declare_parameter('waypoints', [47.398200, 8.546200, 10.0])
+        self.declare_parameter('waypoints', [25.042833, 121.537612, 10.0])   # NTUT field
         self.declare_parameter('takeoff_alt', 5.0)
         self.declare_parameter('acceptance_radius', 1.0)   # m, horizontal
         self.declare_parameter('acceptance_alt', 1.0)      # m, vertical
@@ -56,6 +56,10 @@ class GpsGoto(Node):
         self.declare_parameter('max_eph', 3.0)             # m, do not fly with worse GPS
         self.declare_parameter('max_drift', 3.0)           # m, takeoff horizontal drift -> LAND
         self.declare_parameter('land_at_end', True)
+        # Sanity limits checked before arming: a typo in a coordinate (or a SITL home left at
+        # another place) must not send the drone kilometres away.
+        self.declare_parameter('max_wp_distance', 500.0)   # m, horizontal from takeoff
+        self.declare_parameter('max_alt', 50.0)            # m above takeoff
 
         flat = list(self.get_parameter('waypoints').value)
         if len(flat) == 0 or len(flat) % 3 != 0:
@@ -68,6 +72,8 @@ class GpsGoto(Node):
         self.wp_timeout = self.get_parameter('wp_timeout').value
         self.max_eph = self.get_parameter('max_eph').value
         self.max_drift = self.get_parameter('max_drift').value
+        self.max_wp_dist = self.get_parameter('max_wp_distance').value
+        self.max_alt = self.get_parameter('max_alt').value
         self.land_at_end = self.get_parameter('land_at_end').value
 
         # Best-effort subscribers: compatible with any publisher (reliable or best-effort).
@@ -232,8 +238,11 @@ class GpsGoto(Node):
                            None if self.gps_eph() is None else round(self.gps_eph(), 2),
                            self.origin is not None))
                 return
-            self.plan()
-            self.set_state('PRE_STREAM')
+            if self.plan():
+                self.set_state('PRE_STREAM')
+            else:
+                self.set_state('ABORT')   # nothing armed yet
+                return
 
         # From here on: stream a setpoint every cycle (PX4 needs >= 2 Hz, otherwise failsafe).
         if self.state not in ('LANDING',):
@@ -345,16 +354,20 @@ class GpsGoto(Node):
                 self.set_state('DONE')
 
     def plan(self):
-        """Fix the projection origin and convert every GPS waypoint to MAVROS ENU."""
+        """Fix the projection origin, convert waypoints to MAVROS ENU; False if out of limits."""
         self.home = self.pose
         x0, y0, z0 = self.pos()
         self.setpoint = (x0, y0, z0)
         if self.origin is not None:
             # PX4 local origin (EKF origin) -> matches exactly how PX4 converts GPS to local.
-            g = self.origin.position
-            proj = MapProjection(g.latitude, g.longitude)
+            lat, lon, ecef = origin_lat_lon(self.origin.position)
+            proj = MapProjection(lat, lon)
             off_n, off_e = 0.0, 0.0
-            src = 'gp_origin (%.7f, %.7f)' % (g.latitude, g.longitude)
+            g = self.origin.position
+            src = 'gp_origin (%.7f, %.7f)' % (lat, lon)
+            if ecef:
+                src += ' converted from ECEF (%.1f, %.1f, %.1f)' % (
+                    g.latitude, g.longitude, g.altitude)
         else:
             # Fallback: current position as origin plus offset (mm-level difference at ~100 m).
             proj = MapProjection(self.glob.latitude, self.glob.longitude)
@@ -370,6 +383,19 @@ class GpsGoto(Node):
             self.get_logger().info(
                 'WP%d GPS (%.7f, %.7f, +%.1f m) -> ENU (E %.2f, N %.2f, U %.2f), distance %.1f m'
                 % (i + 1, lat, lon, alt_rel, x, y, z, math.hypot(x - x0, y - y0)))
+
+        ok = True
+        for i, ((x, y, _), (_, _, alt_rel)) in enumerate(zip(self.targets, self.waypoints)):
+            dist = math.hypot(x - x0, y - y0)
+            if dist > self.max_wp_dist:
+                self.get_logger().error('WP%d is %.0f m away (> max_wp_distance %.0f m) -> ABORT'
+                                        % (i + 1, dist, self.max_wp_dist))
+                ok = False
+            if alt_rel > self.max_alt:
+                self.get_logger().error('WP%d altitude %.1f m (> max_alt %.1f m) -> ABORT'
+                                        % (i + 1, alt_rel, self.max_alt))
+                ok = False
+        return ok
 
     def start_waypoint(self, idx):
         self.wp_idx = idx

@@ -1,4 +1,5 @@
-# Fly A -> B -> C, then land. SITL home: 47.397742, 8.545594.
+# Fly A -> B -> C, then land. Zurich (PX4's default SITL home 47.397742, 8.545594); used for the
+# 2026-09-28 results. Run with SIM_HOME="47.397742 8.545594 488.0" (sitl_test.sh) or SITE=zurich (demo_up.sh).
 gps_goto:
   ros__parameters:
     # [lat, lon, alt_rel (m above the takeoff point)] concatenated

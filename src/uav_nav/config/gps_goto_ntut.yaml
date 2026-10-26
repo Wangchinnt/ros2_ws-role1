@@ -1,0 +1,18 @@
+# NTUT East Dorm sports field (Taipei): fly WP1 -> WP2 -> WP3, then land.
+# SITL home (takeoff point): 25.042486, 121.537627, the centroid of the three waypoints, i.e. inside the field.
+#   SIM_HOME="25.042486 121.537627 10" bash src/uav_nav/scripts/sitl_test.sh config:=gps_goto_ntut.yaml
+# Legs: WP1 -> WP2 70.1 m, WP2 -> WP3 37.0 m, WP3 -> WP1 50.0 m.
+gps_goto:
+  ros__parameters:
+    # [lat, lon, alt_rel (m above the takeoff point)] concatenated
+    waypoints: [25.042833, 121.537612, 10.0,   # WP1: ~39 m North, ~2 m West of home
+                25.042224, 121.537790, 10.0,   # WP2: ~29 m South, ~17 m East
+                25.042400, 121.537478, 10.0]   # WP3: ~10 m South, ~15 m West
+    takeoff_alt: 5.0
+    acceptance_radius: 1.0  # m; fine in SITL. With the real uBlox M10, consider ~2 m.
+    acceptance_alt: 1.0
+    hold_time: 3.0
+    wp_timeout: 90.0
+    max_eph: 3.0
+    max_drift: 3.0          # m, excessive horizontal drift during takeoff -> land
+    land_at_end: true

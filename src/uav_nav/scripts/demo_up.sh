@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # Open every window for a live demo (GUI): 1 gnome-terminal window, one tab per job.
 #
-#   bash ~/coding/ros2_ws/src/uav_nav/scripts/demo_up.sh          main demo (PX4 + Gazebo + QGC + node)
-#   CONFIG=gps_goto.yaml bash .../demo_up.sh                      fly 1 point instead of A -> B -> C
+#   bash ~/coding/ros2_ws/src/uav_nav/scripts/demo_up.sh          main demo (PX4 + Gazebo + QGC + node), NTUT
+#   CONFIG=gps_goto.yaml bash .../demo_up.sh                      fly 1 point instead of 3
+#   (default SITE=ntut: NTUT East Dorm field, Taipei, 3 waypoints)
+#   SITE=zurich bash .../demo_up.sh                               PX4's default location, A -> B -> C
+#   FOXY=1 bash .../demo_up.sh                                    node + MAVROS 2.4.0 on ROS 2 Foxy (Docker)
 #   bash ~/coding/ros2_ws/src/uav_nav/scripts/demo_up.sh qos      self-study demo: QoS talker/listener
 #   bash ~/coding/ros2_ws/src/uav_nav/scripts/demo_down.sh        stop everything after the demo
 #
@@ -15,7 +18,13 @@
 WS=$HOME/coding/ros2_ws
 PX4_DIR=${PX4_DIR:-$HOME/coding/tools/PX4-Autopilot}
 QGC=$HOME/Applications/QGroundControl-v5.0.8-x86_64.AppImage
-CONFIG=${CONFIG:-gps_goto_abc.yaml}
+# SITE picks the SITL takeoff point and the default waypoint file together.
+case "${SITE:-ntut}" in
+  zurich) HOME_LLA="47.397742 8.545594 488.0"; DEFAULT_CONFIG=gps_goto_abc.yaml ;;
+  ntut)   HOME_LLA="25.042486 121.537627 10";  DEFAULT_CONFIG=gps_goto_ntut.yaml ;;
+  *) echo "Unknown SITE=$SITE (zurich | ntut)"; exit 2 ;;
+esac
+CONFIG=${CONFIG:-$DEFAULT_CONFIG}
 MODE=${1:-main}
 
 OUT=$WS/results/demo_$(date +%Y%m%d_%H%M%S)_$MODE
@@ -57,6 +66,10 @@ EOF
   exit 0
 fi
 
+# The SITL home (SIM_GZ_HOME_*) is read only at PX4 startup and saved to disk: set it before opening PX4.
+# shellcheck disable=SC2086
+bash "$WS/src/uav_nav/scripts/set_sim_home.sh" $HOME_LLA || exit 1
+
 # PX4 tab: the first line resets SIM_GPS_USED=10 (PX4 saves params to disk; an old gps_loss test may have left 0),
 # then "cat" forwards whatever you type to the PX4 pxh> shell. Ctrl+C stops PX4.
 cat > "$T/px4.sh" <<EOF
@@ -71,13 +84,22 @@ sleep 8
 exec bash
 EOF
 
+if [ -n "$FOXY" ]; then
+  # Same as sitl_test.sh FOXY=1: MAVROS 2.4.0 + gps_goto in the uav_nav_foxy image (docker/foxy/foxy_test.sh builds it).
+  LAUNCH="docker run --rm --init --net=host -e ROS_DOMAIN_ID=42 -v $WS/src/uav_nav:/ws/src/uav_nav:ro uav_nav_foxy \
+bash -c 'source /opt/ros/foxy/setup.bash && colcon build --packages-select uav_nav --build-base /tmp/build \
+--install-base /tmp/install >/dev/null && source /tmp/install/setup.bash && exec ros2 launch uav_nav gps_goto.launch.py config:=$CONFIG'"
+else
+  LAUNCH="ros2 launch uav_nav gps_goto.launch.py config:=$CONFIG"
+fi
+
 cat > "$T/node.sh" <<EOF
 $SRC
 clear
-echo "== NODE gps_goto (config: $CONFIG)"
+echo "== NODE gps_goto (site: ${SITE:-ntut}, config: $CONFIG, ROS: $([ -n "$FOXY" ] && echo 'Foxy in Docker' || echo Humble))"
 echo "Wait for the PX4 tab to print 'Ready for takeoff!' and QGC to see the drone, then press Enter to fly."
 read -r _
-ros2 launch uav_nav gps_goto.launch.py config:=$CONFIG 2>&1 | tee "$OUT/gps_goto.log"
+$LAUNCH 2>&1 | tee "$OUT/gps_goto.log"
 ULG=\$(find "$PX4_DIR/build/px4_sitl_default/rootfs/log" -name '*.ulg' -newer "$OUT/.start" | sort | tail -1)
 if [ -n "\$ULG" ]; then
   cp "\$ULG" "$OUT/flight.ulg"
@@ -85,7 +107,7 @@ if [ -n "\$ULG" ]; then
 fi
 echo
 echo "Logs + plot: $OUT"
-echo "Fly again: ros2 launch uav_nav gps_goto.launch.py config:=$CONFIG"
+echo "Fly again: $LAUNCH"
 exec bash
 EOF
 

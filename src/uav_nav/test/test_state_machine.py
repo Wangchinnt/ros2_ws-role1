@@ -12,7 +12,7 @@ import pytest
 import rclpy
 from sensor_msgs.msg import NavSatFix
 
-from uav_nav.gps_goto import DISARM_TIMEOUT_SEC, ENGAGE_TIMEOUT_SEC, GpsGoto
+from uav_nav.gps_goto import DISARM_TIMEOUT_SEC, ENGAGE_TIMEOUT_SEC, GpsGoto, ORIGIN_WAIT_SEC
 
 
 class FakeClient(object):
@@ -135,3 +135,30 @@ def test_gps_h_acc_not_eph(node):
     # eph is HDOP*100: 70 (HDOP 0.7) is not 0.7 m; h_acc 5000 mm = 5 m > max_eph 3 m
     node.gps = GPSRAW(fix_type=3, eph=70, h_acc=5000)
     assert node.gps_eph() == 5.0 and not node.gps_ok()
+
+
+def ready_to_plan(n, waypoints):
+    n.waypoints = waypoints
+    enter(n, 'WAIT_READY', ORIGIN_WAIT_SEC + 1)    # no gp_origin -> fallback origin = current GPS
+
+
+def test_waypoint_too_far_aborts_before_arming(node):
+    # Taipei waypoint while the drone is in Zurich (e.g. SITL home left at another place)
+    ready_to_plan(node, [(25.042833, 121.537612, 10.0)])
+    node.loop()
+    assert node.state == 'ABORT' and node.finished
+    assert not node.cli_arm.calls and not node.cli_mode.calls
+    assert not node.pub_sp.msgs                   # no setpoint streamed either
+
+
+def test_waypoint_too_high_aborts_before_arming(node):
+    ready_to_plan(node, [(47.398200, 8.546200, node.max_alt + 10.0)])
+    node.loop()
+    assert node.state == 'ABORT'
+    assert not node.cli_arm.calls
+
+
+def test_valid_waypoints_start_streaming(node):
+    ready_to_plan(node, [(47.398200, 8.546200, 10.0)])   # ~68 m away
+    node.loop()
+    assert node.state == 'PRE_STREAM'
