@@ -42,7 +42,8 @@ NTUT runs: SITL home 25.042486, 121.537627 ([`docs/MANUAL_RUN.md`](../docs/MANUA
 | `ntut/…_200500_wrong_waypoint_abort/` | waypoint 9 548 km from the drone | `WP1 is 9548205 m away (> max_wp_distance 500 m) -> ABORT`, never armed |
 | `ntut/…_204927_default_1wp/` | default config `gps_goto.yaml` (NTUT WP1) | 0.32 m |
 | `ntut/…_222339_terminal_gps_override/` | `waypoints:="[25.042224,121.537790,8.0]"` from the terminal | 0.62 m (SITL home was at WP3 for this run) |
-| `demo/demo_20261026_215627_main/` | GUI demo, NTUT field | 0.38 / 0.18 / 0.06 m |
+| `video/video_20261026_233608_ntut_nowind/` | Run shown in the screen recording, NTUT field (GUI: Gazebo + PX4 + QGC) | 0.18 / 0.11 / 0.21 m |
+| `video/video_20261026_232852_ntut_wind3/` | Run shown in the screen recording, 3 m/s wind from the East | 0.77 / 0.99 / 1.82 m |
 
 ## Report 1 (2026-09-28): first SITL results (Zurich, Humble)
 

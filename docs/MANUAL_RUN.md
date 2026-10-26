@@ -73,12 +73,12 @@ cd ~/coding/tools/PX4-Autopilot && make px4_sitl gz_x500
 ros2 launch uav_nav gps_goto.launch.py config:=gps_goto_ntut.yaml      # 3 waypoints on the field
 ```
 
-A good flight prints (from `results/report2_2026-10-26/demo/demo_20261026_215627_main/gps_goto.log`):
+A good flight prints (from `results/report2_2026-10-26/video/video_20261026_233608_ntut_nowind/gps_goto.log`):
 
 ```
-After holding 3 s at WP1: error 0.38 m from target
-After holding 3 s at WP2: error 0.18 m from target
-After holding 3 s at WP3: error 0.06 m from target
+After holding 3 s at WP1: error 0.18 m from target
+After holding 3 s at WP2: error 0.11 m from target
+After holding 3 s at WP3: error 0.21 m from target
 Landed and disarmed. Done.
 ```
 
