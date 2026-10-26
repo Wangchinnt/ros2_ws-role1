@@ -179,3 +179,12 @@ def test_offset_waypoint_too_far_aborts(node):
     ready_to_plan(node, [(node.max_wp_dist + 1.0, 0.0, 5.0)])
     node.loop()
     assert node.state == 'ABORT' and not node.cli_arm.calls
+
+
+def test_offset_waypoint_gps_used_for_error_log(node):
+    # The "error from target" log needs the waypoint's GPS, not the raw offset numbers
+    node.waypoint_frame = 'offset'
+    ready_to_plan(node, [(10.0, 0.0, 5.0)])
+    node.loop()
+    lat, lon = node.target_gps[0]
+    assert abs(lat - (25.042486 + 10.0 / 111195.0)) < 1e-6 and abs(lon - 121.537627) < 1e-6

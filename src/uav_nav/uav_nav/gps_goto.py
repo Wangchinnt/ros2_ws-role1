@@ -317,7 +317,7 @@ class GpsGoto(Node):
                 self.get_logger().info('WP%d: %.1f m horizontal, %.1f m vertical to go'
                                        % (self.wp_idx + 1, dxy, dz))
             if dxy < self.acc_radius and dz < self.acc_alt:
-                lat, lon, _ = self.waypoints[self.wp_idx]
+                lat, lon = self.target_gps[self.wp_idx]
                 err = haversine(lat, lon, self.glob.latitude, self.glob.longitude)
                 self.get_logger().info(
                     'REACHED WP%d: current GPS (%.7f, %.7f), error %.2f m from target'
@@ -329,7 +329,7 @@ class GpsGoto(Node):
 
         elif self.state == 'HOLD':
             if self.elapsed() >= self.hold_time:
-                lat, lon, _ = self.waypoints[self.wp_idx]
+                lat, lon = self.target_gps[self.wp_idx]
                 self.get_logger().info(
                     'After holding %.0f s at WP%d: error %.2f m from target'
                     % (self.hold_time, self.wp_idx + 1,
@@ -367,6 +367,7 @@ class GpsGoto(Node):
         x0, y0, z0 = self.pos()
         self.setpoint = (x0, y0, z0)
         self.targets = []
+        self.target_gps = []   # (lat, lon) of each waypoint, for the 'error from target' logs
         if self.waypoint_frame == 'offset':
             # Metres from the takeoff point; the GPS printed is only for the log.
             here = MapProjection(self.glob.latitude, self.glob.longitude)
@@ -375,6 +376,7 @@ class GpsGoto(Node):
                 x, y, z = x0 + e, y0 + n, z0 + alt_rel
                 self.targets.append((x, y, z))
                 lat, lon = here.reproject(n, e)
+                self.target_gps.append((lat, lon))
                 self.get_logger().info(
                     'WP%d offset (N %+.1f, E %+.1f, +%.1f m) ~ GPS (%.7f, %.7f), distance %.1f m'
                     % (i + 1, n, e, alt_rel, lat, lon, math.hypot(n, e)))
@@ -399,6 +401,7 @@ class GpsGoto(Node):
                 n, e = proj.project(lat, lon)
                 x, y, z = off_e + e, off_n + n, z0 + alt_rel   # NED -> ENU: x=East, y=North, z=Up
                 self.targets.append((x, y, z))
+                self.target_gps.append((lat, lon))
                 self.get_logger().info(
                     'WP%d GPS (%.7f, %.7f, +%.1f m) -> ENU (E %.2f, N %.2f, U %.2f), '
                     'distance %.1f m' % (i + 1, lat, lon, alt_rel, x, y, z,
