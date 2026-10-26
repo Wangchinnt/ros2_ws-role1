@@ -1,6 +1,8 @@
 import math
+from types import SimpleNamespace
 
-from uav_nav.geo import haversine, MapProjection
+from uav_nav.geo import (ecef_to_geodetic, geodetic_to_ecef, haversine, MapProjection,
+                         origin_lat_lon)
 
 HOME = (47.397742, 8.545594)  # SIM_GZ_HOME_LAT/LON of PX4 SITL
 
@@ -41,3 +43,21 @@ def test_round_trip():
         lat, lon = p.reproject(n, e)
         x, y = p.project(lat, lon)
         assert abs(x - n) < 1e-6 and abs(y - e) < 1e-6
+
+
+def test_ecef_roundtrip():
+    lat, lon, alt = ecef_to_geodetic(*geodetic_to_ecef(HOME[0], HOME[1], 488.0))
+    assert abs(lat - HOME[0]) < 1e-9 and abs(lon - HOME[1]) < 1e-9 and abs(alt - 488.0) < 1e-3
+
+
+def test_origin_from_foxy_mavros_ecef():
+    # MAVROS 2.4.0 (Foxy) puts ECEF x/y/z into gp_origin's latitude/longitude/altitude
+    x, y, z = geodetic_to_ecef(HOME[0], HOME[1], 488.0)
+    lat, lon, was_ecef = origin_lat_lon(SimpleNamespace(latitude=x, longitude=y, altitude=z))
+    assert was_ecef
+    assert haversine(lat, lon, *HOME) < 0.01
+
+
+def test_origin_lat_lon_passthrough():
+    p = SimpleNamespace(latitude=HOME[0], longitude=HOME[1], altitude=488.0)
+    assert origin_lat_lon(p) == (HOME[0], HOME[1], False)

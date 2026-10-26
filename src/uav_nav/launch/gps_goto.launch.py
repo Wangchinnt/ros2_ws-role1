@@ -2,7 +2,7 @@
 Run MAVROS (MAVLink <-> ROS 2) + gps_goto with parameters from config/gps_goto.yaml.
 
 Usage: ros2 launch uav_nav gps_goto.launch.py
-       ros2 launch uav_nav gps_goto.launch.py config:=gps_goto_abc.yaml   (another file in config/)
+       ros2 launch uav_nav gps_goto.launch.py config:=gps_goto_ntut.yaml  (another file in config/)
        ros2 launch uav_nav gps_goto.launch.py router:=true   (through mavlink-router, like VOXL 2)
        ros2 launch uav_nav gps_goto.launch.py start_mavros:=false   (MAVROS already running)
 SITL: PX4 sends MAVLink for the onboard computer to UDP 14540.
@@ -14,15 +14,41 @@ import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import (DeclareLaunchArgument, EmitEvent, ExecuteProcess,
-                            IncludeLaunchDescription, OpaqueFunction, RegisterEventHandler)
+                            OpaqueFunction, RegisterEventHandler)
 from launch.event_handlers import OnProcessExit
 from launch.events import Shutdown
-from launch.launch_description_sources import AnyLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 DIRECT_URL = 'udp://:14540@127.0.0.1:14557'
 ROUTER_URL = 'udp://:14640@'   # MAVROS listens on 14640, replies to the router's address
+
+
+def mavros_node(fcu_url, gcs_url):
+    """
+    Start mavros_node directly instead of including MAVROS' px4.launch.
+
+    ros-foxy-mavros 2.4.0 (VOXL 2) still ships ROS 1 launch/YAML files ($(find), <rosparam>,
+    no ros__parameters), which ROS 2 cannot load. Its PX4 YAML files are only passed when they
+    are in ROS 2 format (MAVROS 2.15.1 on Humble); otherwise MAVROS runs with its defaults
+    except for a plugin denylist.
+    """
+    launch_dir = os.path.join(get_package_share_directory('mavros'), 'launch')
+    params = [{'fcu_url': fcu_url, 'gcs_url': gcs_url}]
+    ros2_yaml = []
+    for name in ('px4_pluginlists.yaml', 'px4_config.yaml'):
+        path = os.path.join(launch_dir, name)
+        if os.path.exists(path):
+            with open(path) as f:
+                if 'ros__parameters' in f.read():
+                    ros2_yaml.append(path)
+    if not ros2_yaml:
+        # Same plugins the Humble px4_pluginlists.yaml disables, plus odometry: without a TF
+        # tree it logs a TF error at 30 Hz.
+        params[0]['plugin_denylist'] = ['image_pub', 'vibration', 'distance_sensor',
+                                        'rangefinder', 'wheel_odometry', 'odometry']
+    return Node(package='mavros', executable='mavros_node', output='screen',
+                parameters=params + ros2_yaml)
 
 
 def launch_setup(context):
@@ -39,12 +65,7 @@ def launch_setup(context):
                  '-c', os.path.join(share, 'config', 'mavlink-router-sitl.conf')],
             name='mavlink_router', output='screen'))
     if LaunchConfiguration('start_mavros').perform(context).lower() == 'true':
-        actions.append(IncludeLaunchDescription(
-            AnyLaunchDescriptionSource(
-                os.path.join(get_package_share_directory('mavros'), 'launch', 'px4.launch')),
-            launch_arguments={'fcu_url': fcu_url,
-                              'gcs_url': LaunchConfiguration('gcs_url').perform(context)
-                              }.items()))
+        actions.append(mavros_node(fcu_url, LaunchConfiguration('gcs_url').perform(context)))
     gps_goto = Node(package='uav_nav', executable='gps_goto', name='gps_goto',
                     output='screen', parameters=[config])
     actions.append(gps_goto)
