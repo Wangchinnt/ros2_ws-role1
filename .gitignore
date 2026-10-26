@@ -8,16 +8,13 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
-# Internal docs in Vietnamese (kept locally, not shared); the English docs below are shared
-docs/*
-!docs/FOXY_DOCKER.md
-!docs/DEPLOY_VOXL2.md
-!docs/FIELD_TEST_PLAN.md
+# Vietnamese notes and report material: kept locally, not shared
+docs/vi/
 
-# Personal scratch notes
-note.md
+# New test runs land here; move a run into results/<report>/ to keep it
+results/runs/
 
-# PX4 binary flight logs (~300 MB); regenerate by re-running the tests
+# PX4 binary flight logs (~10 MB each); regenerate by re-running the tests
 *.ulg
 
 # Temporary markers left by the test scripts

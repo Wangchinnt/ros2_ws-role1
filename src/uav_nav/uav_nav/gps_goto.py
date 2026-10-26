@@ -48,6 +48,10 @@ class GpsGoto(Node):
         # waypoints: flat list [lat, lon, alt_rel, lat, lon, alt_rel, ...],
         # alt_rel = altitude (m) relative to the takeoff point.
         self.declare_parameter('waypoints', [25.042833, 121.537612, 10.0])   # NTUT field
+        # How to read each waypoint triple:
+        #   gps     [lat, lon, alt_rel]       GPS coordinates (default)
+        #   offset  [north_m, east_m, alt_rel] metres from the takeoff point, no coordinates needed
+        self.declare_parameter('waypoint_frame', 'gps')
         self.declare_parameter('takeoff_alt', 5.0)
         self.declare_parameter('acceptance_radius', 1.0)   # m, horizontal
         self.declare_parameter('acceptance_alt', 1.0)      # m, vertical
@@ -61,9 +65,13 @@ class GpsGoto(Node):
         self.declare_parameter('max_wp_distance', 500.0)   # m, horizontal from takeoff
         self.declare_parameter('max_alt', 50.0)            # m above takeoff
 
-        flat = list(self.get_parameter('waypoints').value)
+        self.waypoint_frame = self.get_parameter('waypoint_frame').value
+        if self.waypoint_frame not in ('gps', 'offset'):
+            raise ValueError('waypoint_frame must be gps or offset, got %r' % self.waypoint_frame)
+        flat = [float(v) for v in self.get_parameter('waypoints').value]
         if len(flat) == 0 or len(flat) % 3 != 0:
-            raise ValueError('waypoints must be a multiple of 3: [lat, lon, alt_rel, ...]')
+            raise ValueError('waypoints must be a multiple of 3: [lat, lon, alt_rel, ...] '
+                             'or [north_m, east_m, alt_rel, ...]')
         self.waypoints = [tuple(flat[i:i + 3]) for i in range(0, len(flat), 3)]
         self.takeoff_alt = self.get_parameter('takeoff_alt').value
         self.acc_radius = self.get_parameter('acceptance_radius').value
@@ -358,31 +366,43 @@ class GpsGoto(Node):
         self.home = self.pose
         x0, y0, z0 = self.pos()
         self.setpoint = (x0, y0, z0)
-        if self.origin is not None:
-            # PX4 local origin (EKF origin) -> matches exactly how PX4 converts GPS to local.
-            lat, lon, ecef = origin_lat_lon(self.origin.position)
-            proj = MapProjection(lat, lon)
-            off_n, off_e = 0.0, 0.0
-            g = self.origin.position
-            src = 'gp_origin (%.7f, %.7f)' % (lat, lon)
-            if ecef:
-                src += ' converted from ECEF (%.1f, %.1f, %.1f)' % (
-                    g.latitude, g.longitude, g.altitude)
-        else:
-            # Fallback: current position as origin plus offset (mm-level difference at ~100 m).
-            proj = MapProjection(self.glob.latitude, self.glob.longitude)
-            off_n, off_e = y0, x0
-            src = 'current position (no gp_origin received)'
-        self.get_logger().info('Projection origin: %s' % src)
-
         self.targets = []
-        for i, (lat, lon, alt_rel) in enumerate(self.waypoints):
-            n, e = proj.project(lat, lon)
-            x, y, z = off_e + e, off_n + n, z0 + alt_rel   # NED -> ENU: x=East, y=North, z=Up
-            self.targets.append((x, y, z))
-            self.get_logger().info(
-                'WP%d GPS (%.7f, %.7f, +%.1f m) -> ENU (E %.2f, N %.2f, U %.2f), distance %.1f m'
-                % (i + 1, lat, lon, alt_rel, x, y, z, math.hypot(x - x0, y - y0)))
+        if self.waypoint_frame == 'offset':
+            # Metres from the takeoff point; the GPS printed is only for the log.
+            here = MapProjection(self.glob.latitude, self.glob.longitude)
+            self.get_logger().info('Waypoints are offsets from takeoff (North, East, Up)')
+            for i, (n, e, alt_rel) in enumerate(self.waypoints):
+                x, y, z = x0 + e, y0 + n, z0 + alt_rel
+                self.targets.append((x, y, z))
+                lat, lon = here.reproject(n, e)
+                self.get_logger().info(
+                    'WP%d offset (N %+.1f, E %+.1f, +%.1f m) ~ GPS (%.7f, %.7f), distance %.1f m'
+                    % (i + 1, n, e, alt_rel, lat, lon, math.hypot(n, e)))
+        else:
+            if self.origin is not None:
+                # PX4 local origin (EKF origin) -> matches exactly how PX4 converts GPS to local.
+                lat, lon, ecef = origin_lat_lon(self.origin.position)
+                proj = MapProjection(lat, lon)
+                off_n, off_e = 0.0, 0.0
+                g = self.origin.position
+                src = 'gp_origin (%.7f, %.7f)' % (lat, lon)
+                if ecef:
+                    src += ' converted from ECEF (%.1f, %.1f, %.1f)' % (
+                        g.latitude, g.longitude, g.altitude)
+            else:
+                # Fallback: current position as origin plus offset (mm-level difference at ~100 m)
+                proj = MapProjection(self.glob.latitude, self.glob.longitude)
+                off_n, off_e = y0, x0
+                src = 'current position (no gp_origin received)'
+            self.get_logger().info('Projection origin: %s' % src)
+            for i, (lat, lon, alt_rel) in enumerate(self.waypoints):
+                n, e = proj.project(lat, lon)
+                x, y, z = off_e + e, off_n + n, z0 + alt_rel   # NED -> ENU: x=East, y=North, z=Up
+                self.targets.append((x, y, z))
+                self.get_logger().info(
+                    'WP%d GPS (%.7f, %.7f, +%.1f m) -> ENU (E %.2f, N %.2f, U %.2f), '
+                    'distance %.1f m' % (i + 1, lat, lon, alt_rel, x, y, z,
+                                         math.hypot(x - x0, y - y0)))
 
         ok = True
         for i, ((x, y, _), (_, _, alt_rel)) in enumerate(zip(self.targets, self.waypoints)):

@@ -46,7 +46,7 @@ def node():
     n.pose = pose(0.0, 0.0, 0.0)
     n.home = n.pose
     n.gps = GPSRAW(fix_type=3, h_acc=900)       # 0.9 m, like SITL
-    n.glob = NavSatFix(latitude=47.397742, longitude=8.545594)
+    n.glob = NavSatFix(latitude=25.042486, longitude=121.537627)   # NTUT field
     n.setpoint = (0.0, 0.0, 0.0)
     yield n
     n.destroy_node()
@@ -143,8 +143,8 @@ def ready_to_plan(n, waypoints):
 
 
 def test_waypoint_too_far_aborts_before_arming(node):
-    # Taipei waypoint while the drone is in Zurich (e.g. SITL home left at another place)
-    ready_to_plan(node, [(25.042833, 121.537612, 10.0)])
+    # ~2.2 km North of the field: a typo in a coordinate
+    ready_to_plan(node, [(25.062833, 121.537612, 10.0)])
     node.loop()
     assert node.state == 'ABORT' and node.finished
     assert not node.cli_arm.calls and not node.cli_mode.calls
@@ -152,13 +152,30 @@ def test_waypoint_too_far_aborts_before_arming(node):
 
 
 def test_waypoint_too_high_aborts_before_arming(node):
-    ready_to_plan(node, [(47.398200, 8.546200, node.max_alt + 10.0)])
+    ready_to_plan(node, [(25.042833, 121.537612, node.max_alt + 10.0)])
     node.loop()
     assert node.state == 'ABORT'
     assert not node.cli_arm.calls
 
 
 def test_valid_waypoints_start_streaming(node):
-    ready_to_plan(node, [(47.398200, 8.546200, 10.0)])   # ~68 m away
+    ready_to_plan(node, [(25.042833, 121.537612, 10.0)])   # NTUT WP1, ~39 m away
     node.loop()
     assert node.state == 'PRE_STREAM'
+
+
+def test_offset_waypoints_are_relative_to_takeoff(node):
+    # waypoint_frame=offset: [north_m, east_m, alt_rel]; MAVROS ENU is x=East, y=North, z=Up
+    node.waypoint_frame = 'offset'
+    node.pose = pose(2.0, 3.0, 0.5)
+    ready_to_plan(node, [(10.0, 0.0, 5.0), (0.0, -4.0, 3.0)])
+    node.loop()
+    assert node.state == 'PRE_STREAM'
+    assert node.targets == [(2.0, 13.0, 5.5), (-2.0, 3.0, 3.5)]
+
+
+def test_offset_waypoint_too_far_aborts(node):
+    node.waypoint_frame = 'offset'
+    ready_to_plan(node, [(node.max_wp_dist + 1.0, 0.0, 5.0)])
+    node.loop()
+    assert node.state == 'ABORT' and not node.cli_arm.calls

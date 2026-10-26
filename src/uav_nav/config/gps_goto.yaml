@@ -1,5 +1,5 @@
 # Parameters for gps_goto: one waypoint on the NTUT East Dorm field (WP1 of gps_goto_ntut.yaml).
-# SITL home: 25.042486, 121.537627 (default of sitl_test.sh / demo_up.sh).
+# SITL home: 25.042486, 121.537627 (set once by hand, docs/MANUAL_RUN.md §2).
 gps_goto:
   ros__parameters:
     # [lat, lon, alt_rel (m above the takeoff point)] concatenated

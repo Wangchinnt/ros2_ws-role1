@@ -5,11 +5,17 @@ Usage: ros2 launch uav_nav gps_goto.launch.py
        ros2 launch uav_nav gps_goto.launch.py config:=gps_goto_ntut.yaml  (another file in config/)
        ros2 launch uav_nav gps_goto.launch.py router:=true   (through mavlink-router, like VOXL 2)
        ros2 launch uav_nav gps_goto.launch.py start_mavros:=false   (MAVROS already running)
+Override the waypoints of the config file from the terminal (quotes needed):
+       ros2 launch uav_nav gps_goto.launch.py waypoints:="[25.042833, 121.537612, 10.0]"
+       ros2 launch uav_nav gps_goto.launch.py waypoint_frame:=offset waypoints:="[10, 0, 5]"
+         (offset = [north_m, east_m, alt_rel] from the takeoff point: 10 m North, 5 m up)
 SITL: PX4 sends MAVLink for the onboard computer to UDP 14540.
   router:=false  MAVROS connects directly to 14540.
   router:=true   mavlink-routerd listens on 14540 and fans out to MAVROS (14640) + GCS (14551).
 """
 import os
+
+import yaml
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
@@ -66,8 +72,19 @@ def launch_setup(context):
             name='mavlink_router', output='screen'))
     if LaunchConfiguration('start_mavros').perform(context).lower() == 'true':
         actions.append(mavros_node(fcu_url, LaunchConfiguration('gcs_url').perform(context)))
+    # Terminal overrides come after the config file, so they win.
+    overrides = {}
+    wps = LaunchConfiguration('waypoints').perform(context).strip()
+    if wps:
+        values = yaml.safe_load(wps)
+        if not isinstance(values, list):
+            raise ValueError('waypoints:=%r is not a list like "[lat, lon, alt, ...]"' % wps)
+        overrides['waypoints'] = [float(v) for v in values]
+    frame = LaunchConfiguration('waypoint_frame').perform(context).strip()
+    if frame:
+        overrides['waypoint_frame'] = frame
     gps_goto = Node(package='uav_nav', executable='gps_goto', name='gps_goto',
-                    output='screen', parameters=[config])
+                    output='screen', parameters=[config, overrides])
     actions.append(gps_goto)
     # gps_goto finished (DONE/ABORT) -> shut down the whole launch, incl. MAVROS and router.
     actions.append(RegisterEventHandler(OnProcessExit(
@@ -85,5 +102,9 @@ def generate_launch_description():
                               description='empty = choose automatically based on router'),
         DeclareLaunchArgument('gcs_url', default_value=''),
         DeclareLaunchArgument('start_mavros', default_value='true'),
+        DeclareLaunchArgument('waypoints', default_value='',
+                              description='"[a, b, alt, ...]" overrides the config file'),
+        DeclareLaunchArgument('waypoint_frame', default_value='',
+                              description='gps | offset; empty = from the config file'),
         OpaqueFunction(function=launch_setup),
     ])

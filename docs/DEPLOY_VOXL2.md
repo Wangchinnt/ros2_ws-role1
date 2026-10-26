@@ -19,11 +19,11 @@ within a radius, hold → land. Full description: [README](../README.md#gps_goto
 
 | Item | Status | Evidence |
 |---|---|---|
-| Fly to GPS waypoints, error after hold 0.1–0.4 m | ⚠️ | `results/mavlink/`, `results/foxy/` |
+| Fly to GPS waypoints, error after hold 0.1–0.4 m | ⚠️ | `results/report1_2026-09-28/mavlink/`, `results/report2_2026-10-26/foxy/` |
 | ROS 2 **Foxy** + MAVROS **2.4.0** (same versions as VOXL 2) | ⚠️ Docker on x86 | [FOXY_DOCKER.md](FOXY_DOCKER.md) |
-| Failsafe: node killed, pilot takeover, GPS loss → lands | ⚠️ | `results/failsafe/`, `results/foxy/…_gps_loss` |
-| Through a MAVLink router (stand-in for `voxl-mavlink-server`) | ⚠️ `mavlink-router` | `results/mavlink/…_router` |
-| NTUT East Dorm field mission + 3 m/s wind | ⚠️ | `results/ntut/` |
+| Failsafe: node killed, pilot takeover, GPS loss → lands | ⚠️ | `results/report1_2026-09-28/failsafe/`, `results/report2_2026-10-26/foxy/…_gps_loss` |
+| Through a MAVLink router (stand-in for `voxl-mavlink-server`) | ⚠️ `mavlink-router` | `results/report1_2026-09-28/mavlink/…_router` |
+| NTUT East Dorm field mission + 3 m/s wind | ⚠️ | `results/report2_2026-10-26/ntut/` |
 | Runs on the VOXL 2 itself (arm64) | ❓ | |
 | MAVROS ↔ `voxl-mavlink-server` connection | ❓ | |
 | Real GPS (uBlox M10) accuracy vs `max_eph` / `acceptance_radius` | ❓ | |
@@ -94,12 +94,16 @@ ros2 launch uav_nav gps_goto.launch.py fcu_url:=<FCU_URL> config:=gps_goto_ntut.
 
 ```bash
 ros2 launch uav_nav gps_goto.launch.py fcu_url:=<FCU_URL> config:=gps_goto_ntut.yaml
+ros2 launch uav_nav gps_goto.launch.py fcu_url:=<FCU_URL> waypoints:="[25.042224, 121.537790, 8.0]"
+ros2 launch uav_nav gps_goto.launch.py fcu_url:=<FCU_URL> waypoint_frame:=offset waypoints:="[10, 0, 5]"
 ```
 
 | Argument | Use on the drone |
 |---|---|
 | `fcu_url` | **required**: the `voxl-mavlink-server` endpoint (question 2). The default `udp://:14540@127.0.0.1:14557` is the SITL one |
 | `config` | waypoint file in `config/`; edit a copy for each test site |
+| `waypoints` | `"[a, b, alt, ...]"` overrides the file's waypoints from the terminal |
+| `waypoint_frame` | `gps` (`[lat, lon, alt_rel]`) or `offset` (`[north_m, east_m, alt_rel]` from takeoff) |
 | `start_mavros:=false` | if MAVROS is already running on the drone (then `fcu_url` is not used) |
 | `router` | leave `false`: `voxl-mavlink-server` is the router |
 
@@ -123,7 +127,7 @@ When `gps_goto` exits (mission done or aborted) the launch also stops MAVROS.
 - If the mode is no longer OFFBOARD while flying (pilot switched, or PX4 failsafe), the node
   **aborts and stops sending commands**. It never fights the pilot for control.
 - Before arming, every waypoint is checked against `max_wp_distance` and `max_alt`; a wrong
-  coordinate stops the node on the ground (tested: `results/ntut/…_wrong_waypoint_abort`).
+  coordinate stops the node on the ground (tested: `results/report2_2026-10-26/ntut/…_wrong_waypoint_abort`).
 - If GPS degrades (`fix_type < 3` or `h_acc > max_eph`) or the drone drifts during takeoff, it commands LAND.
 - If the node or the computer dies, PX4 loses setpoints and after `COM_OF_LOSS_T` (default 1 s)
   executes `COM_OBL_RC_ACT`. In SITL (no RC) this ended with a landing at 27.9 s.

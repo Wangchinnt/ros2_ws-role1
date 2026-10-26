@@ -53,84 +53,67 @@ What it does (`docker/foxy/foxy_test.sh`):
 2. Starts a container, runs `colcon build --packages-select uav_nav` (into `/tmp`, because `src` is read-only).
 3. Prints Python and MAVROS versions, runs `test_geo.py` + `test_state_machine.py`, imports the node.
 
-Expected end of output (from `results/foxy/unit_20261026_192130/foxy_test.log`):
+Expected end of output (run on 2026-10-26):
 
 ```
 Successfully tagged uav_nav_foxy:latest
 Python 3.8.10
 mavros 2.4.0-1focal.20230606.041241
-...................                                                      [100%]
-19 passed in 0.68 seconds
+.....................                                                    [100%]
+21 passed in 0.99 seconds
 import gps_goto OK on Foxy
 ```
 
 ## 3. Fly in SITL with the Foxy container
 
-`sitl_test.sh` starts PX4 SITL on the host; with `FOXY=1` it runs MAVROS + `gps_goto`
-inside the container instead of on the host. Requires the image from step 2.
+PX4 runs on the host as usual; only MAVROS + `gps_goto` run in the container.
 
 ```bash
-cd ~/coding/ros2_ws
-FOXY=1 bash src/uav_nav/scripts/sitl_test.sh                              # 1 waypoint, NTUT field
-FOXY=1 bash src/uav_nav/scripts/sitl_test.sh config:=gps_goto_ntut.yaml   # 3 waypoints, NTUT field
-SCENARIO=gps_loss FOXY=1 bash src/uav_nav/scripts/sitl_test.sh            # GPS lost mid-flight
-FOXY=1 bash src/uav_nav/scripts/demo_up.sh                                # GUI demo with the Foxy node
-
-# The first Foxy runs (table in section 4) were at PX4's default location, Zurich:
-SIM_HOME="47.397742 8.545594 488.0" FOXY=1 bash src/uav_nav/scripts/sitl_test.sh config:=gps_goto_abc.yaml
-```
-
-Each run writes `results/sitl_test_<time>_foxy/` (`gps_goto.log`, `px4.log`, `flight.ulg`, `summary.txt`)
-and prints the summary. A good run ends with (this one at Zurich, the default before 2026-10-26):
-
-```
-Projection origin: gp_origin (47.3977472, 8.5455928) converted from ECEF (4277582.5, 642769.3, 4672204.0)
-REACHED WP1: current GPS (47.3981957, 8.5461927), error 0.73 m from target
-After holding 5 s at WP1: error 0.22 m from target
-Landed and disarmed. Done.
---- conclusion: drone landed and disarmed
-```
-
-Only `SCENARIO=none|gps_loss` are supported with `FOXY=1` (`kill_node` and `mode_switch` act on
-host processes / the host ROS graph). The container uses `ROS_DOMAIN_ID=42` so it never mixes with
-Humble nodes on the host.
-
-### Manual run (without sitl_test.sh)
-
-```bash
-# Terminal 1: PX4 SITL on the host (set_sim_home.sh once: PX4 saves the home to disk)
-bash ~/coding/ros2_ws/src/uav_nav/scripts/set_sim_home.sh
+# T1: PX4 SITL on the host (SITL home set once, MANUAL_RUN.md §2). Wait for "Ready for takeoff!"
 cd ~/coding/tools/PX4-Autopilot && make px4_sitl gz_x500
 
-# Terminal 2: MAVROS + gps_goto on Foxy
-cd ~/coding/ros2_ws
-bash docker/foxy/foxy_test.sh fly
-```
-
-`foxy_test.sh fly` runs `ros2 launch uav_nav gps_goto.launch.py` inside the container with the default
-config. To pass launch arguments or open a shell in the container:
-
-```bash
+# T2: a shell in the Foxy container. --net=host: MAVROS reaches PX4 on UDP 14540.
+#     ROS_DOMAIN_ID=42: Foxy nodes never mix with Humble nodes on the host.
 docker run --rm -it --net=host -e ROS_DOMAIN_ID=42 \
   -v ~/coding/ros2_ws/src/uav_nav:/ws/src/uav_nav:ro uav_nav_foxy bash
-# inside:
+
+# inside the container:
 source /opt/ros/foxy/setup.bash
 colcon build --packages-select uav_nav --build-base /tmp/build --install-base /tmp/install
 source /tmp/install/setup.bash
 ros2 launch uav_nav gps_goto.launch.py config:=gps_goto_ntut.yaml
+# or: ros2 launch uav_nav gps_goto.launch.py waypoint_frame:=offset waypoints:="[10, 0, 5]"
 ```
+
+A good run prints (from `results/report2_2026-10-26/ntut/sitl_test_20261026_194735_foxy/gps_goto.log`):
+
+```
+Projection origin: gp_origin (25.0424896, 121.5376256) converted from ECEF (-3024350.1, 4928023.8, 2683352.3)
+REACHED WP1: current GPS (25.0428250, 121.5376112), error 0.89 m from target
+After holding 3 s at WP1: error 0.36 m from target
+After holding 3 s at WP2: error 0.16 m from target
+After holding 3 s at WP3: error 0.01 m from target
+Landed and disarmed. Done.
+```
+
+"converted from ECEF" is expected on Foxy (section 5.2). To watch topics from the host, use the same
+domain: `ROS_DOMAIN_ID=42 ros2 topic echo /mavros/state` (the message types must match: works for
+standard ones).
+
+Automated version of the same: `FOXY=1 bash src/uav_nav/scripts/sitl_test.sh [launch args]`
+(output in `results/runs/`; `SCENARIO=none|gps_loss` only).
 
 ## 4. Results (2026-10-26)
 
 | Run | Result |
 |---|---|
-| Unit tests on Foxy | 19/19 passed (Python 3.8.10, MAVROS 2.4.0) |
+| Unit tests on Foxy | 21/21 passed (Python 3.8.10, MAVROS 2.4.0) |
 | 1 waypoint | error after hold **0.22 m** (Humble: 0.29 m) |
 | A → B → C | 0.28 / 0.33 / 0.42 m |
 | GPS loss | node detects `fix_type=0` → LAND; PX4 failsafe; landed and disarmed |
 | NTUT field, 3 waypoints | 0.36 / 0.16 / 0.01 m |
 
-Logs: `results/foxy/`, `results/ntut/`. Index: [`results/README.md`](../results/README.md).
+Logs: `results/report2_2026-10-26/foxy/`, `results/report2_2026-10-26/ntut/`. Index: [`results/README.md`](../results/README.md).
 
 ## 5. Foxy problems found and fixed
 
@@ -138,7 +121,7 @@ Static checks (imports, syntax) had passed before; both problems only appeared w
 
 ### 5.1 MAVROS 2.4.0 ships ROS 1 launch files
 
-Symptom (`results/foxy/sitl_test_20261026_192943_launch_fail/gps_goto.log`):
+Symptom (`results/report2_2026-10-26/foxy/sitl_test_20261026_192943_launch_fail/gps_goto.log`):
 
 ```
 launch.invalid_launch_file_error.InvalidLaunchFileError: The launch file may have a syntax error, or its format is unknown
@@ -159,7 +142,7 @@ printed a TF error 30 times per second (3 523 lines in one flight).
 
 ### 5.2 MAVROS 2.4.0 publishes gp_origin in ECEF
 
-Symptom (`results/foxy/sitl_test_20261026_193306_ecef_origin_bug/`): the flight "succeeded"
+Symptom (`results/report2_2026-10-26/foxy/sitl_test_20261026_193306_ecef_origin_bug/`): the flight "succeeded"
 (landed and disarmed) but the drone never reached the waypoint:
 
 ```
@@ -170,7 +153,7 @@ Takeoff ... wp_timeout -> LAND
 
 Cause: `/mavros/global_position/gp_origin` carries **ECEF x/y/z in metres** in the
 latitude/longitude/altitude fields on MAVROS 2.4.0, but WGS84 degrees on 2.15.1.
-Check: the SITL home (47.3977°, 8.5456°, 488 m) in ECEF is x ≈ 4 277 600 m, y ≈ 642 700 m,
+Check: the SITL home used then (PX4's default, 47.3977°, 8.5456°, 488 m) in ECEF is x ≈ 4 277 600 m, y ≈ 642 700 m,
 which matches the logged values.
 
 Fix: `geo.origin_lat_lon()` treats a latitude outside ±90° as ECEF and converts it with

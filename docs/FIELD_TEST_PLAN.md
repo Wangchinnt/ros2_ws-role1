@@ -1,7 +1,7 @@
 # Field test plan: NTUT East Dorm sports field
 
 First outdoor flights of `gps_goto` on the Starling 2 Max. Each step must pass before the next one.
-The mission is the same one flown in SITL (`config/gps_goto_ntut.yaml`, `results/ntut/`).
+The mission is the same one flown in SITL (`config/gps_goto_ntut.yaml`, `results/report2_2026-10-26/ntut/`).
 
 ## Site
 
@@ -30,7 +30,7 @@ Taipei's prevailing wind in autumn is from the east/north-east (NE monsoon) at a
 [not verified against official data; check the CWA observation for Taipei on the day:
 <https://www.cwa.gov.tw/> (Observation → Taipei)].
 The SITL wind model is not calibrated (at 5 m/s from ENE the simulation could not take off,
-`results/ntut/…_wind-4.6_-1.9`), so it cannot predict the real drone's wind tolerance; the limits
+`results/report2_2026-10-26/ntut/…_wind-4.6_-1.9`), so it cannot predict the real drone's wind tolerance; the limits
 above are conservative choices for a first test.
 
 ## Before going to the field
@@ -54,9 +54,13 @@ above are conservative choices for a first test.
 | # | Test | Command / action | Pass when |
 |---|---|---|---|
 | 1 | Manual hover | Pilot: takeoff in Position mode, hover 30 s, land | Stable hover; note GPS `h_acc` |
-| 2 | Offboard hold | Config with **one waypoint at the takeoff point**, `takeoff_alt: 3.0` | Takes off, holds within ~2 m, lands |
-| 3 | One short leg | One waypoint ~10 m away, `takeoff_alt: 5.0` | `REACHED WP1`, error after hold < 2 m, lands |
+| 2 | Offboard hold | `waypoint_frame:=offset waypoints:="[0, 0, 5]"` (above takeoff, 5 m) | Takes off, holds within ~2 m, lands |
+| 3 | One short leg | `waypoint_frame:=offset waypoints:="[10, 0, 5]"` (10 m North; pick a direction that stays in the field) | `REACHED WP1`, error after hold < 2 m, lands |
 | 4 | NTUT mission | `config:=gps_goto_ntut.yaml` | All 3 waypoints reached, lands |
+
+Every command is `ros2 launch uav_nav gps_goto.launch.py fcu_url:=<FCU_URL> <arguments above>`;
+see [MANUAL_RUN.md §3](MANUAL_RUN.md#choose-the-waypoints-from-the-terminal-no-file-editing). Offsets need
+no coordinates, so steps 2–3 work wherever the drone takes off.
 | 5 | Pilot takeover (optional) | During step 4, pilot switches to Position mode | Node logs ABORT and stops commanding; pilot lands |
 
 Run each step at least twice. Stop the session if any step fails, and analyse the logs first.
@@ -78,4 +82,4 @@ Run each step at least twice. Stop the session if any step fails, and analyse th
 
 Put them in `results/field_<date>_<step>/` and plot with
 `python3 src/uav_nav/scripts/plot_flight.py results/field_<date>_<step>` (needs `flight.ulg` in that directory).
-Compare with the SITL results in `results/ntut/`.
+Compare with the SITL results in `results/report2_2026-10-26/ntut/`.
