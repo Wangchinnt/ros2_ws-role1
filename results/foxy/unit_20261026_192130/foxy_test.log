@@ -1,0 +1,21 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon   5.12kB
+Step 1/3 : FROM ros:foxy-ros-base
+ ---> 34fbe32f5b1c
+Step 2/3 : RUN apt-get update && apt-get install -y --no-install-recommends         ros-foxy-mavros ros-foxy-mavros-extras ros-foxy-mavros-msgs         ros-foxy-geographic-msgs python3-pytest python3-colcon-common-extensions     && /opt/ros/foxy/lib/mavros/install_geographiclib_datasets.sh     && rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> 31d286f270a2
+Step 3/3 : WORKDIR /ws
+ ---> Using cache
+ ---> e44ce360280d
+Successfully built e44ce360280d
+Successfully tagged uav_nav_foxy:latest
+Python 3.8.10
+mavros 2.4.0-1focal.20230606.041241
+...................                                                      [100%]
+19 passed in 0.68 seconds
+import gps_goto OK on Foxy
+exit=0

@@ -1,0 +1,38 @@
+scenario: none   wind: none   ros: humble   args: config:=gps_goto_ntut.yaml
+--- gps_goto:
+Projection origin: gp_origin (25.0424848, 121.5376256)
+WP1 GPS (25.0428330, 121.5376120, +10.0 m) -> ENU (E -1.37, N 38.72, U 9.35), distance 38.7 m
+WP2 GPS (25.0422240, 121.5377900, +10.0 m) -> ENU (E 16.56, N -29.00, U 9.35), distance 33.5 m
+WP3 GPS (25.0424000, 121.5374780, +10.0 m) -> ENU (E -14.87, N -9.43, U 9.35), distance 17.7 m
+[WAIT_READY] -> [PRE_STREAM]
+[PRE_STREAM] -> [ENGAGE]
+[ENGAGE] -> [TAKEOFF]
+[TAKEOFF] -> [GOTO]
+REACHED WP1: current GPS (25.0428245, 121.5376110), error 0.95 m from target
+[GOTO] -> [HOLD]
+After holding 3 s at WP1: error 0.30 m from target
+[HOLD] -> [GOTO]
+REACHED WP2: current GPS (25.0422318, 121.5377868), error 0.93 m from target
+[GOTO] -> [HOLD]
+After holding 3 s at WP2: error 0.14 m from target
+[HOLD] -> [GOTO]
+REACHED WP3: current GPS (25.0423975, 121.5374865), error 0.90 m from target
+[GOTO] -> [HOLD]
+After holding 3 s at WP3: error 0.11 m from target
+[HOLD] -> [LANDING]
+[mavros_node-1] [ERROR] [1793015217.368191025] [mavros.sys]: FCU: EVENT 3087815 with args -0-64-0-0-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+Landed and disarmed. Done.
+[LANDING] -> [DONE]
+--- PX4:
+WARN  [init] PX4_GZ_MODEL_NAME or PX4_GZ_MODEL not set using PX4_SIM_MODEL.
+INFO  [commander] LED: open /dev/led0 failed (22)
+INFO  [commander] Ready for takeoff!
+INFO  [commander] Armed by external command	
+INFO  [commander] Takeoff detected	
+WARN  [timesync] RTT too high for timesync: 2112 ms
+WARN  [timesync] RTT too high for timesync: 1520 ms
+WARN  [timesync] RTT too high for timesync: 932 ms
+WARN  [timesync] RTT too high for timesync: 340 ms
+INFO  [commander] Landing detected	
+INFO  [commander] Disarmed by landing	
+--- conclusion: drone landed and disarmed

@@ -8,8 +8,11 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
-# Internal docs (kept locally, not shared)
-docs/
+# Internal docs in Vietnamese (kept locally, not shared); the English docs below are shared
+docs/*
+!docs/FOXY_DOCKER.md
+!docs/DEPLOY_VOXL2.md
+!docs/FIELD_TEST_PLAN.md
 
 # Personal scratch notes
 note.md

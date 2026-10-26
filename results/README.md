@@ -32,6 +32,28 @@ Node log messages were originally in Vietnamese; the recorded logs have been tra
 | `wind/invalid_gps_param/` | **Invalid**: run while `SIM_GPS_USED=0` was still persisted from the `gps_loss` test | PX4 never reports "Ready for takeoff". Kept as a lesson: PX4 saves params to disk, so `sitl_test.sh` now resets `SIM_GPS_USED=10` on startup |
 | `xrce_dds/` | Old version over uXRCE-DDS (`px4_msgs`) | error on arrival 0.58–0.92 m |
 
+## Index (2026-10-26): ROS 2 Foxy and the NTUT field
+
+Foxy runs use `FOXY=1` (MAVROS 2.4.0 + gps_goto in Docker, see [`docs/FOXY_DOCKER.md`](../docs/FOXY_DOCKER.md)).
+NTUT runs use `SIM_HOME="25.042486 121.537627 10"` and `config:=gps_goto_ntut.yaml`.
+
+| Directory | Content | Main result |
+|---|---|---|
+| `foxy/unit_20261026_192130/` | `docker/foxy/foxy_test.sh`: build + unit tests on Foxy | 19/19 passed, Python 3.8.10, MAVROS 2.4.0 |
+| `foxy/…_192943_launch_fail/` | **Bug 1**: first Foxy flight | launch failed: MAVROS 2.4.0 `px4.launch` is ROS 1 format; drone never armed |
+| `foxy/…_193306_ecef_origin_bug/` | **Bug 2**: after fixing the launch | `gp_origin` read as lat/lon but is ECEF → WP1 "7 694 943 m" away, takeoff timeout → land |
+| `foxy/sitl_test_20261026_193704/` | 1 waypoint, both bugs fixed | error after hold 0.22 m |
+| `foxy/…_193926_abc/` | A → B → C on Foxy | 0.28 / 0.33 / 0.42 m |
+| `foxy/…_194046_gps_loss/` | GPS loss on Foxy | node → LAND, PX4 failsafe, landed and disarmed |
+| `mavlink/…_193822_humble_after_launch_change/` | Humble regression after the launch change | 0.29 m |
+| `ntut/sitl_test_20261026_194544/` | NTUT field, Humble | 0.30 / 0.14 / 0.11 m |
+| `ntut/…_194735_foxy/` | NTUT field, Foxy | 0.36 / 0.16 / 0.01 m |
+| `ntut/…_194905_wind-3_0/` | NTUT field, 3 m/s wind **from** the East (`WIND="-3 0"`) | 0.75 / 0.94 / 1.86 m; path bends West on the leg to WP1 (`flight.png`) |
+| `ntut/…_195030_wind-4.6_-1.9/` | NTUT field, 5 m/s from ENE | simulation slowed down (timesync RTT up to 2.3 s), takeoff timeout → land. Wind model limit, not a node result |
+| `ntut/…_195933_foxy_after_wp_check/` | NTUT field, Foxy, after adding `max_wp_distance` / `max_alt` | 0.33 / 0.22 / 0.14 m |
+| `ntut/…_200500_wrong_waypoint_abort/` | Taipei home + default (Zurich) waypoint | `WP1 is 9548205 m away (> max_wp_distance 500 m) -> ABORT`, drone never armed |
+| `ntut/…_204927_default_1wp/` | Plain `sitl_test.sh` after NTUT became the default (home + `gps_goto.yaml`) | error after hold 0.32 m |
+
 "Error on arrival" = GPS distance to the target when the drone first enters the 1 m acceptance radius.
 "Error after hold" = after holding position for `hold_time` seconds; this is the real accuracy.
 

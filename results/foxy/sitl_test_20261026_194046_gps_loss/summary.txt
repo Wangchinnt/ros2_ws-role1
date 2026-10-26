@@ -1,0 +1,24 @@
+scenario: gps_loss   wind: none   ros: foxy (docker)   args: 
+--- gps_goto:
+Projection origin: gp_origin (47.3977472, 8.5455936) converted from ECEF (4277582.7, 642769.4, 4672204.2)
+WP1 GPS (47.3982000, 8.5462000, +10.0 m) -> ENU (E 45.64, N 50.35, U 9.83), distance 68.3 m
+[WAIT_READY] -> [PRE_STREAM]
+[PRE_STREAM] -> [ENGAGE]
+[ENGAGE] -> [TAKEOFF]
+[TAKEOFF] -> [GOTO]
+GPS degraded (fix_type=0, h_acc=100.0 m) -> LAND
+[GOTO] -> [LANDING]
+Landed and disarmed. Done.
+[LANDING] -> [DONE]
+--- PX4:
+WARN  [init] PX4_GZ_MODEL_NAME or PX4_GZ_MODEL not set using PX4_SIM_MODEL.
+INFO  [commander] LED: open /dev/led0 failed (22)
+INFO  [commander] Ready for takeoff!
+INFO  [commander] Armed by external command	
+INFO  [commander] Takeoff detected	
+WARN  [mc_pos_control] invalid setpoints
+WARN  [mc_pos_control] Failsafe: blind land
+WARN  [failsafe] Failsafe activated	
+INFO  [commander] Landing detected	
+INFO  [commander] Disarmed by landing	
+--- conclusion: drone landed and disarmed

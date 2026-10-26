@@ -1,0 +1,369 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-10-26-11-47-56-329022-rvl-wangchinnt-7
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [mavros_node-1]: process started with pid [60]
+[INFO] [gps_goto-2]: process started with pid [62]
+[mavros_node-1] [INFO] [1793015276.443275537] [mavros_node]: Starting mavros_node container
+[mavros_node-1] [INFO] [1793015276.443354736] [mavros_node]: FCU URL: udp://:14540@127.0.0.1:14557
+[mavros_node-1] [INFO] [1793015276.443364964] [mavros_node]: GCS URL: 
+[mavros_node-1] [INFO] [1793015276.443370634] [mavros_node]: UAS Prefix: /uas1
+[mavros_node-1] [INFO] [1793015276.443375669] [mavros_node]: Starting mavros router node
+[mavros_node-1] [INFO] [1793015276.446854733] [mavros_router]: Built-in SIMD instructions: SSE, SSE2
+[mavros_node-1] [INFO] [1793015276.446883945] [mavros_router]: Built-in MAVLink package version: 2022.12.30
+[mavros_node-1] [INFO] [1793015276.446898494] [mavros_router]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all cubepilot development icarous matrixpilot paparazzi standard storm32 uAvionix ualberta
+[mavros_node-1] [INFO] [1793015276.446908554] [mavros_router]: MAVROS Router started
+[mavros_node-1] [INFO] [1793015276.446932738] [mavros_router]: Requested to add endpoint: type: 0, url: udp://:14540@127.0.0.1:14557
+[mavros_node-1] [INFO] [1793015276.446956997] [mavros_router]: Endpoint link[1000] created
+[mavros_node-1] [INFO] [1793015276.447473585] [mavros_router]: link[1000] opened successfully
+[mavros_node-1] [INFO] [1793015276.447520105] [mavros_router]: Requested to add endpoint: type: 2, url: /uas1
+[mavros_node-1] [INFO] [1793015276.447544486] [mavros_router]: Endpoint link[1001] created
+[mavros_node-1] [INFO] [1793015276.448080444] [mavros_router]: link[1001] opened successfully
+[mavros_node-1] [INFO] [1793015276.448111018] [mavros_node]: Starting mavros uas node
+[mavros_node-1] [INFO] [1793015276.450634164] [mavros_router]: link[1000] detected remote address 1.1
+[mavros_node-1] [INFO] [1793015276.482869916] [mavros]: UAS Executor started, threads: 8
+[mavros_node-1] [INFO] [1793015276.494658729] [mavros]: Plugin actuator_control created
+[mavros_node-1] [INFO] [1793015276.494705312] [mavros]: Plugin actuator_control initialized
+[mavros_node-1] [INFO] [1793015276.506344528] [mavros]: Plugin adsb created
+[mavros_node-1] [INFO] [1793015276.506390130] [mavros]: Plugin adsb initialized
+[mavros_node-1] [INFO] [1793015276.509171946] [mavros]: Plugin altitude created
+[mavros_node-1] [INFO] [1793015276.509211996] [mavros]: Plugin altitude initialized
+[mavros_node-1] [INFO] [1793015276.512502703] [mavros]: Plugin cam_imu_sync created
+[mavros_node-1] [INFO] [1793015276.512545823] [mavros]: Plugin cam_imu_sync initialized
+[mavros_node-1] [INFO] [1793015276.515651112] [mavros]: Plugin camera created
+[mavros_node-1] [INFO] [1793015276.515693112] [mavros]: Plugin camera initialized
+[mavros_node-1] [INFO] [1793015276.519175926] [mavros]: Plugin cellular_status created
+[mavros_node-1] [INFO] [1793015276.519219913] [mavros]: Plugin cellular_status initialized
+[mavros_node-1] [INFO] [1793015276.524683308] [mavros]: Plugin command created
+[mavros_node-1] [INFO] [1793015276.524730947] [mavros]: Plugin command initialized
+[mavros_node-1] [INFO] [1793015276.528577607] [mavros]: Plugin companion_process_status created
+[mavros_node-1] [INFO] [1793015276.528613109] [mavros]: Plugin companion_process_status initialized
+[mavros_node-1] [INFO] [1793015276.533057063] [mavros]: Plugin debug_value created
+[mavros_node-1] [INFO] [1793015276.533125680] [mavros]: Plugin debug_value initialized
+[mavros_node-1] [INFO] [1793015276.533143324] [mavros]: Plugin distance_sensor ignored
+[mavros_node-1] [INFO] [1793015276.538061439] [mavros]: Plugin esc_status created
+[mavros_node-1] [INFO] [1793015276.538127447] [mavros]: Plugin esc_status initialized
+[mavros_node-1] [INFO] [1793015276.543325928] [mavros]: Plugin esc_telemetry created
+[mavros_node-1] [INFO] [1793015276.543392898] [mavros]: Plugin esc_telemetry initialized
+[mavros_node-1] [INFO] [1793015276.549854669] [mavros]: Plugin fake_gps created
+[mavros_node-1] [INFO] [1793015276.549891998] [mavros]: Plugin fake_gps initialized
+[mavros_node-1] [INFO] [1793015276.556781690] [mavros]: Plugin ftp created
+[mavros_node-1] [INFO] [1793015276.556827612] [mavros]: Plugin ftp initialized
+[mavros_node-1] [INFO] [1793015276.562271389] [mavros]: Plugin geofence created
+[mavros_node-1] [INFO] [1793015276.562329533] [mavros]: Plugin geofence initialized
+[mavros_node-1] [INFO] [1793015276.570722790] [mavros]: Plugin global_position created
+[mavros_node-1] [INFO] [1793015276.570779723] [mavros]: Plugin global_position initialized
+[mavros_node-1] [INFO] [1793015276.576312669] [mavros]: Plugin gps_input created
+[mavros_node-1] [INFO] [1793015276.576347038] [mavros]: Plugin gps_input initialized
+[mavros_node-1] [INFO] [1793015276.581973051] [mavros]: Plugin gps_rtk created
+[mavros_node-1] [INFO] [1793015276.582050133] [mavros]: Plugin gps_rtk initialized
+[mavros_node-1] [INFO] [1793015276.586717371] [mavros]: Plugin gps_status created
+[mavros_node-1] [INFO] [1793015276.586779862] [mavros]: Plugin gps_status initialized
+[mavros_node-1] [INFO] [1793015276.593240658] [mavros]: Plugin guided_target created
+[mavros_node-1] [INFO] [1793015276.593331811] [mavros]: Plugin guided_target initialized
+[mavros_node-1] [INFO] [1793015276.603088053] [mavros]: Plugin hil created
+[mavros_node-1] [INFO] [1793015276.603161428] [mavros]: Plugin hil initialized
+[mavros_node-1] [INFO] [1793015276.611081219] [mavros]: Plugin home_position created
+[mavros_node-1] [INFO] [1793015276.611143873] [mavros]: Plugin home_position initialized
+[mavros_node-1] [INFO] [1793015276.620924557] [mavros]: Plugin imu created
+[mavros_node-1] [INFO] [1793015276.620995596] [mavros]: Plugin imu initialized
+[mavros_node-1] [INFO] [1793015276.629464161] [mavros]: Plugin landing_target created
+[mavros_node-1] [INFO] [1793015276.629511352] [mavros]: Plugin landing_target initialized
+[mavros_node-1] [INFO] [1793015276.639837355] [mavros]: Plugin local_position created
+[mavros_node-1] [INFO] [1793015276.639897824] [mavros]: Plugin local_position initialized
+[mavros_node-1] [INFO] [1793015276.648687755] [mavros]: Plugin log_transfer created
+[mavros_node-1] [INFO] [1793015276.648742558] [mavros]: Plugin log_transfer initialized
+[mavros_node-1] [INFO] [1793015276.656106808] [mavros]: Plugin mag_calibration_status created
+[mavros_node-1] [INFO] [1793015276.656149822] [mavros]: Plugin mag_calibration_status initialized
+[mavros_node-1] [INFO] [1793015276.665011724] [mavros]: Plugin manual_control created
+[mavros_node-1] [INFO] [1793015276.665078173] [mavros]: Plugin manual_control initialized
+[mavros_node-1] [INFO] [1793015276.672779128] [mavros]: Plugin mocap_pose_estimate created
+[mavros_node-1] [INFO] [1793015276.672817304] [mavros]: Plugin mocap_pose_estimate initialized
+[mavros_node-1] [INFO] [1793015276.682533047] [mavros]: Plugin mount_control created
+[mavros_node-1] [INFO] [1793015276.682573206] [mavros]: Plugin mount_control initialized
+[mavros_node-1] [INFO] [1793015276.690437238] [mavros]: Plugin nav_controller_output created
+[mavros_node-1] [INFO] [1793015276.690484887] [mavros]: Plugin nav_controller_output initialized
+[mavros_node-1] [INFO] [1793015276.700492865] [mavros]: Plugin obstacle_distance created
+[mavros_node-1] [INFO] [1793015276.700530000] [mavros]: Plugin obstacle_distance initialized
+[mavros_node-1] [INFO] [1793015276.700546788] [mavros]: Plugin odometry ignored
+[mavros_node-1] [INFO] [1793015276.709335646] [mavros]: Plugin onboard_computer_status created
+[mavros_node-1] [INFO] [1793015276.709370818] [mavros]: Plugin onboard_computer_status initialized
+[mavros_node-1] [INFO] [1793015276.721607228] [mavros]: Plugin param created
+[mavros_node-1] [INFO] [1793015276.721672951] [mavros]: Plugin param initialized
+[mavros_node-1] [INFO] [1793015276.731867635] [mavros]: Plugin play_tune created
+[mavros_node-1] [INFO] [1793015276.731902277] [mavros]: Plugin play_tune initialized
+[mavros_node-1] [INFO] [1793015276.744426189] [mavros]: Plugin px4flow created
+[mavros_node-1] [INFO] [1793015276.744470106] [mavros]: Plugin px4flow initialized
+[mavros_node-1] [INFO] [1793015276.756996714] [mavros]: Plugin rallypoint created
+[mavros_node-1] [INFO] [1793015276.757093912] [mavros]: Plugin rallypoint initialized
+[mavros_node-1] [INFO] [1793015276.757126771] [mavros]: Plugin rangefinder ignored
+[mavros_node-1] [INFO] [1793015276.768115566] [mavros]: Plugin rc_io created
+[mavros_node-1] [INFO] [1793015276.768175450] [mavros]: Plugin rc_io initialized
+[mavros_node-1] [INFO] [1793015276.777899938] [mavros]: Plugin setpoint_accel created
+[mavros_node-1] [INFO] [1793015276.778009895] [mavros]: Plugin setpoint_accel initialized
+[mavros_node-1] [INFO] [1793015276.790573258] [mavros]: Plugin setpoint_attitude created
+[mavros_node-1] [INFO] [1793015276.790617624] [mavros]: Plugin setpoint_attitude initialized
+[mavros_node-1] [INFO] [1793015276.804130932] [mavros]: Plugin setpoint_position created
+[mavros_node-1] [INFO] [1793015276.804172199] [mavros]: Plugin setpoint_position initialized
+[mavros_node-1] [INFO] [1793015276.819954924] [mavros]: Plugin setpoint_raw created
+[mavros_node-1] [INFO] [1793015276.820026917] [mavros]: Plugin setpoint_raw initialized
+[mavros_node-1] [INFO] [1793015276.835639077] [mavros]: Plugin setpoint_trajectory created
+[mavros_node-1] [INFO] [1793015276.835680726] [mavros]: Plugin setpoint_trajectory initialized
+[mavros_node-1] [INFO] [1793015276.850222307] [mavros]: Plugin setpoint_velocity created
+[mavros_node-1] [INFO] [1793015276.850266616] [mavros]: Plugin setpoint_velocity initialized
+[mavros_node-1] [INFO] [1793015276.871400732] [mavros]: Plugin sys_status created
+[mavros_node-1] [INFO] [1793015276.871497429] [mavros]: Plugin sys_status initialized
+[mavros_node-1] [INFO] [1793015276.884754140] [mavros.time]: TM: Timesync mode: MAVLINK
+[mavros_node-1] [INFO] [1793015276.889727146] [mavros]: Plugin sys_time created
+[mavros_node-1] [INFO] [1793015276.889780831] [mavros]: Plugin sys_time initialized
+[mavros_node-1] [INFO] [1793015276.904092603] [mavros]: Plugin tdr_radio created
+[mavros_node-1] [INFO] [1793015276.904165585] [mavros]: Plugin tdr_radio initialized
+[mavros_node-1] [INFO] [1793015276.918383058] [mavros]: Plugin terrain created
+[mavros_node-1] [INFO] [1793015276.918454597] [mavros]: Plugin terrain initialized
+[mavros_node-1] [INFO] [1793015276.934730647] [mavros]: Plugin trajectory created
+[mavros_node-1] [INFO] [1793015276.934787728] [mavros]: Plugin trajectory initialized
+[mavros_node-1] [INFO] [1793015276.948469755] [mavros]: Plugin tunnel created
+[mavros_node-1] [INFO] [1793015276.948513337] [mavros]: Plugin tunnel initialized
+[mavros_node-1] [INFO] [1793015276.963665163] [mavros]: Plugin vfr_hud created
+[mavros_node-1] [INFO] [1793015276.963718120] [mavros]: Plugin vfr_hud initialized
+[mavros_node-1] [INFO] [1793015276.963735198] [mavros]: Plugin vibration ignored
+[mavros_node-1] [INFO] [1793015276.979380961] [mavros]: Plugin vision_pose created
+[mavros_node-1] [INFO] [1793015276.979417795] [mavros]: Plugin vision_pose initialized
+[mavros_node-1] [INFO] [1793015276.997035208] [mavros]: Plugin vision_speed created
+[mavros_node-1] [INFO] [1793015276.997079354] [mavros]: Plugin vision_speed initialized
+[mavros_node-1] [INFO] [1793015277.018707280] [mavros]: Plugin waypoint created
+[mavros_node-1] [INFO] [1793015277.018825077] [mavros]: Plugin waypoint initialized
+[mavros_node-1] [INFO] [1793015277.040830890] [mavros]: Plugin wheel_odomotry created
+[mavros_node-1] [INFO] [1793015277.040890340] [mavros]: Plugin wheel_odomotry initialized
+[mavros_node-1] [INFO] [1793015277.059875370] [mavros]: Plugin wind_estimation created
+[mavros_node-1] [INFO] [1793015277.059941990] [mavros]: Plugin wind_estimation initialized
+[mavros_node-1] [INFO] [1793015277.062023896] [mavros]: Built-in SIMD instructions: SSE, SSE2
+[mavros_node-1] [INFO] [1793015277.062051767] [mavros]: Built-in MAVLink package version: 2022.12.30
+[mavros_node-1] [INFO] [1793015277.062063930] [mavros]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all cubepilot development icarous matrixpilot paparazzi standard storm32 uAvionix ualberta
+[mavros_node-1] [INFO] [1793015277.062075112] [mavros]: MAVROS UAS via /uas1 started. MY ID 1.191, TARGET ID 1.1
+[mavros_node-1] [INFO] [1793015277.063864815] [mavros.imu]: IMU: Attitude quaternion IMU detected!
+[mavros_node-1] [INFO] [1793015277.067856331] [mavros.imu]: IMU: High resolution IMU detected!
+[mavros_node-1] [INFO] [1793015277.148287237] [mavros_router]: link[1001] detected remote address 1.191
+[gps_goto-2] [INFO] [1793015277.197118315] [gps_goto]: gps_goto (MAVLink/MAVROS): 3 waypoint, takeoff 5.0 m, radius 1.0 m
+[mavros_node-1] [INFO] [1793015277.249311434] [mavros]: CON: Got HEARTBEAT, connected. FCU: PX4 Autopilot
+[mavros_node-1] [INFO] [1793015277.249531925] [mavros.mission]: WP: detected enable_partial_push: 0
+[mavros_node-1] [INFO] [1793015277.249668054] [mavros.imu]: IMU: High resolution IMU detected!
+[mavros_node-1] [INFO] [1793015277.265462133] [mavros.imu]: IMU: Attitude quaternion IMU detected!
+[gps_goto-2] [INFO] [1793015278.208805852] [gps_goto]: Projection origin: gp_origin (25.0424896, 121.5376256) converted from ECEF (-3024350.1, 4928023.8, 2683352.3)
+[gps_goto-2] [INFO] [1793015278.209472252] [gps_goto]: WP1 GPS (25.0428330, 121.5376120, +10.0 m) -> ENU (E -1.37, N 38.18, U 9.34), distance 38.6 m
+[gps_goto-2] [INFO] [1793015278.210112949] [gps_goto]: WP2 GPS (25.0422240, 121.5377900, +10.0 m) -> ENU (E 16.56, N -29.53, U 9.34), distance 33.5 m
+[gps_goto-2] [INFO] [1793015278.210739596] [gps_goto]: WP3 GPS (25.0424000, 121.5374780, +10.0 m) -> ENU (E -14.87, N -9.96, U 9.34), distance 17.6 m
+[gps_goto-2] [INFO] [1793015278.211412764] [gps_goto]: [WAIT_READY] -> [PRE_STREAM]
+[mavros_node-1] [INFO] [1793015278.259205847] [mavros.geofence]: GF: Using MISSION_ITEM_INT
+[mavros_node-1] [INFO] [1793015278.259241166] [mavros.rallypoint]: RP: Using MISSION_ITEM_INT
+[mavros_node-1] [INFO] [1793015278.259257881] [mavros.mission]: WP: Using MISSION_ITEM_INT
+[mavros_node-1] [INFO] [1793015278.259278572] [mavros.sys]: VER: 1.1: Capabilities         0x000000000000ecff
+[mavros_node-1] [INFO] [1793015278.259297998] [mavros.sys]: VER: 1.1: Flight software:     010e00ff (b8c541dd72000000)
+[mavros_node-1] [INFO] [1793015278.259308225] [mavros.sys]: VER: 1.1: Middleware software: 010e00ff (b8c541dd72000000)
+[mavros_node-1] [INFO] [1793015278.259316921] [mavros.sys]: VER: 1.1: OS software:         060800ff (de41e7feaeffaec3)
+[mavros_node-1] [INFO] [1793015278.259339984] [mavros.sys]: VER: 1.1: Board hardware:      00000001
+[mavros_node-1] [INFO] [1793015278.259363373] [mavros.sys]: VER: 1.1: VID/PID:             0000:0000
+[mavros_node-1] [INFO] [1793015278.259371720] [mavros.sys]: VER: 1.1: UID:                 4954414c44494e4f
+[mavros_node-1] [WARN] [1793015278.263300777] [mavros.cmd]: CMD: Unexpected command 520, result 0
+[gps_goto-2] [INFO] [1793015279.258890446] [gps_goto]: [PRE_STREAM] -> [ENGAGE]
+[gps_goto-2] [INFO] [1793015281.308616742] [gps_goto]: [ENGAGE] -> [TAKEOFF]
+[gps_goto-2] [INFO] [1793015286.908851351] [gps_goto]: [TAKEOFF] -> [GOTO]
+[gps_goto-2] [INFO] [1793015287.158980192] [gps_goto]: WP1: 38.7 m horizontal, 5.9 m vertical to go
+[gps_goto-2] [INFO] [1793015288.159198006] [gps_goto]: WP1: 34.9 m horizontal, 3.1 m vertical to go
+[gps_goto-2] [INFO] [1793015289.158876015] [gps_goto]: WP1: 25.4 m horizontal, 1.1 m vertical to go
+[gps_goto-2] [INFO] [1793015290.159489551] [gps_goto]: WP1: 14.9 m horizontal, 0.5 m vertical to go
+[gps_goto-2] [INFO] [1793015291.158728427] [gps_goto]: WP1: 4.3 m horizontal, 0.2 m vertical to go
+[gps_goto-2] [INFO] [1793015291.708944457] [gps_goto]: REACHED WP1: current GPS (25.0428250, 121.5376112), error 0.89 m from target
+[gps_goto-2] [INFO] [1793015291.709413655] [gps_goto]: [GOTO] -> [HOLD]
+[mavros_node-1] [INFO] [1793015292.249821706] [mavros.mission]: WP: mission received
+[gps_goto-2] [INFO] [1793015294.758787210] [gps_goto]: After holding 3 s at WP1: error 0.36 m from target
+[gps_goto-2] [INFO] [1793015294.759408380] [gps_goto]: [HOLD] -> [GOTO]
+[gps_goto-2] [INFO] [1793015295.158908608] [gps_goto]: WP2: 69.5 m horizontal, 0.1 m vertical to go
+[gps_goto-2] [INFO] [1793015296.158719619] [gps_goto]: WP2: 63.9 m horizontal, 0.2 m vertical to go
+[gps_goto-2] [INFO] [1793015297.158932477] [gps_goto]: WP2: 53.1 m horizontal, 0.1 m vertical to go
+[mavros_node-1] [INFO] [1793015297.249758898] [mavros.rallypoint]: RP: mission received
+[gps_goto-2] [INFO] [1793015298.158891770] [gps_goto]: WP2: 41.2 m horizontal, 0.0 m vertical to go
+[gps_goto-2] [INFO] [1793015299.158688779] [gps_goto]: WP2: 29.1 m horizontal, 0.0 m vertical to go
+[gps_goto-2] [INFO] [1793015300.158935795] [gps_goto]: WP2: 17.0 m horizontal, 0.0 m vertical to go
+[gps_goto-2] [INFO] [1793015301.158994178] [gps_goto]: WP2: 5.0 m horizontal, 0.0 m vertical to go
+[gps_goto-2] [INFO] [1793015301.708889777] [gps_goto]: REACHED WP2: current GPS (25.0422321, 121.5377872), error 0.94 m from target
+[gps_goto-2] [INFO] [1793015301.709420056] [gps_goto]: [GOTO] -> [HOLD]
+[mavros_node-1] [INFO] [1793015302.249533541] [mavros.geofence]: GF: mission received
+[gps_goto-2] [INFO] [1793015304.758950413] [gps_goto]: After holding 3 s at WP2: error 0.16 m from target
+[gps_goto-2] [INFO] [1793015304.759554239] [gps_goto]: [HOLD] -> [GOTO]
+[gps_goto-2] [INFO] [1793015305.158894595] [gps_goto]: WP3: 36.8 m horizontal, 0.1 m vertical to go
+[gps_goto-2] [INFO] [1793015306.158928640] [gps_goto]: WP3: 30.8 m horizontal, 0.2 m vertical to go
+[gps_goto-2] [INFO] [1793015307.159040382] [gps_goto]: WP3: 19.8 m horizontal, 0.1 m vertical to go
+[gps_goto-2] [INFO] [1793015308.159045592] [gps_goto]: WP3: 8.1 m horizontal, 0.1 m vertical to go
+[gps_goto-2] [INFO] [1793015309.058845484] [gps_goto]: REACHED WP3: current GPS (25.0423980, 121.5374854), error 0.78 m from target
+[gps_goto-2] [INFO] [1793015309.059466292] [gps_goto]: [GOTO] -> [HOLD]
+[gps_goto-2] [INFO] [1793015312.108946735] [gps_goto]: After holding 3 s at WP3: error 0.01 m from target
+[gps_goto-2] [INFO] [1793015312.109730811] [gps_goto]: [HOLD] -> [LANDING]
+[mavros_node-1] [WARN] [1793015312.118351264] [mavros.cmd]: CMD: Unexpected command 176, result 0
+[mavros_node-1] [WARN] [1793015312.134505056] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015312.234702167] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015312.335330868] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015312.436185623] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015312.536525803] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015312.637352870] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015312.737849141] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015312.838307889] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015312.938988556] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015313.039540453] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015313.140077559] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015313.240466011] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015313.340729883] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015313.441415359] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015313.541542113] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015313.642521354] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015313.743445734] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015313.843665336] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015313.944460442] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015314.044434828] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015314.145220718] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015314.245643781] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015314.346337028] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015314.446249579] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015314.546893807] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015314.647399162] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015314.747558861] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015314.848196740] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015314.948539338] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015315.049339202] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015315.150369363] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015315.250529306] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015315.355301192] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015315.455437318] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015315.555462403] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015315.655254953] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015315.755426190] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015315.855292601] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015315.955550952] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015316.056413387] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015316.156380215] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015316.256964732] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015316.357857651] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015316.458331705] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015316.559239579] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015316.659479319] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015316.760406385] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015316.860423944] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015316.960549766] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015317.061412228] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015317.162113438] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015317.262674045] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015317.363394034] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015317.463624075] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015317.564224235] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015317.664558563] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015317.764420590] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015317.864730622] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015317.965389619] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015318.066445765] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015318.166331140] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015318.267066285] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015318.367398330] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015318.468515415] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015318.569264442] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015318.669503830] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015318.770511753] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015318.870468366] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015318.971300916] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015319.072638795] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015319.178428278] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015319.278415427] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015319.378393566] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015319.478482254] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015319.578356377] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015319.678994363] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015319.779259894] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015319.879767560] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015319.980527953] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015320.081383227] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015320.181391380] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015320.282502000] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015320.382364442] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015320.483142606] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015320.583823146] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015320.684559997] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015320.785528765] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015320.885516284] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015320.985887341] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015321.086399213] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015321.187128278] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015321.287414894] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015321.387921253] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015321.488347787] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015321.588326405] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015321.689124123] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015321.789694704] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015321.890404356] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015321.990792782] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015322.091365415] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015322.191529046] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015322.292303752] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015322.392472367] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015322.493395105] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015322.593494319] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015322.694395191] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015322.794423200] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015322.895389242] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015322.995779722] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015323.096373790] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015323.196662747] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015323.297644071] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015323.398038506] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015323.498852293] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015323.599293850] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015323.699673993] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015323.800556519] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015323.901188578] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015324.001279706] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015324.101794627] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015324.202405831] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015324.303378813] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015324.403344661] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015324.503400778] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015324.603651508] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015324.704472525] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015324.805485258] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015324.905788745] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015325.006407562] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015325.106672153] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015325.207310678] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015325.307740072] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015325.408379396] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015325.508415506] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015325.609451680] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015325.709544987] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015325.810350208] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015325.911027113] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015326.012269440] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015326.112330770] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015326.212504864] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015326.312498582] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015326.413564917] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015326.514136625] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015326.614507866] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015326.715426429] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015326.815407953] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015326.915488276] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015327.016501829] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015327.116903012] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015327.218146112] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015327.318462490] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015327.418628283] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015327.519366267] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015327.620058222] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015327.721051652] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015327.821513389] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015327.921572247] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015328.022324593] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015328.122677945] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015328.223369814] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[mavros_node-1] [WARN] [1793015328.323494256] [mavros.guided_target]: PositionTargetGlobal failed because no origin
+[gps_goto-2] [INFO] [1793015328.558562862] [gps_goto]: Landed and disarmed. Done.
+[gps_goto-2] [INFO] [1793015328.559130605] [gps_goto]: [LANDING] -> [DONE]
+[INFO] [gps_goto-2]: process has finished cleanly [pid 62]
+[INFO] [mavros_node-1]: sending signal 'SIGINT' to process[mavros_node-1]
+[mavros_node-1] [INFO] [1793015328.619080606] [rclcpp]: signal_handler(signal_value=2)
+[mavros_node-1] [WARN] [1793015328.619531990] [mavros]: UAS Executor terminated
+[INFO] [mavros_node-1]: process has finished cleanly [pid 60]

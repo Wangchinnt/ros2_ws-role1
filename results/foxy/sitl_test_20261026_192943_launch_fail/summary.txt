@@ -1,0 +1,8 @@
+scenario: none   wind: none   ros: foxy (docker)   args: 
+--- gps_goto:
+--- PX4:
+WARN  [init] PX4_GZ_MODEL_NAME or PX4_GZ_MODEL not set using PX4_SIM_MODEL.
+INFO  [commander] LED: open /dev/led0 failed (22)
+INFO  [commander] Ready for takeoff!
+INFO  [commander] Landing at current position	
+--- conclusion: NOT disarmed

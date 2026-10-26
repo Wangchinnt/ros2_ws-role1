@@ -1,0 +1,22 @@
+scenario: none   wind: none   ros: foxy (docker)   args: 
+--- gps_goto:
+Projection origin: gp_origin (4277582.3507339, 642769.5144400)
+WP1 GPS (47.3982000, 8.5462000, +10.0 m) -> ENU (E -1816906.47, N 7477365.87, U 10.62), distance 7694943.2 m
+[WAIT_READY] -> [PRE_STREAM]
+[PRE_STREAM] -> [ENGAGE]
+[ENGAGE] -> [TAKEOFF]
+[TAKEOFF] -> [GOTO]
+Timeout WP1 -> LAND
+[GOTO] -> [LANDING]
+Landed and disarmed. Done.
+[LANDING] -> [DONE]
+--- PX4:
+WARN  [init] PX4_GZ_MODEL_NAME or PX4_GZ_MODEL not set using PX4_SIM_MODEL.
+INFO  [commander] LED: open /dev/led0 failed (22)
+INFO  [commander] Ready for takeoff!
+INFO  [commander] Armed by external command	
+INFO  [commander] Takeoff detected	
+INFO  [commander] Landing detected	
+INFO  [commander] Disarmed by landing	
+--- conclusion: drone landed and disarmed
+(3523 repeated 'ODOM: Ex: Could not find a connection between map and base_link_frd' lines removed; see gps_goto.log)

@@ -1,0 +1,11 @@
+scenario: none   wind: none   ros: humble   args: 
+--- gps_goto:
+Projection origin: gp_origin (25.0424864, 121.5376256)
+WP1 GPS (47.3982000, 8.5462000, +10.0 m) -> ENU (E -5965256.16, N 7455464.18, U 9.93), distance 9548205.5 m
+WP1 is 9548205 m away (> max_wp_distance 500 m) -> ABORT
+[WAIT_READY] -> [ABORT]
+--- PX4:
+WARN  [init] PX4_GZ_MODEL_NAME or PX4_GZ_MODEL not set using PX4_SIM_MODEL.
+INFO  [commander] LED: open /dev/led0 failed (22)
+INFO  [commander] Ready for takeoff!
+--- conclusion: drone never armed (node stopped before takeoff)

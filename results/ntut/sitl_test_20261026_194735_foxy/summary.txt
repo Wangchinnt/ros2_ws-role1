@@ -1,0 +1,33 @@
+scenario: none   wind: none   ros: foxy (docker)   args: config:=gps_goto_ntut.yaml
+--- gps_goto:
+Projection origin: gp_origin (25.0424896, 121.5376256) converted from ECEF (-3024350.1, 4928023.8, 2683352.3)
+WP1 GPS (25.0428330, 121.5376120, +10.0 m) -> ENU (E -1.37, N 38.18, U 9.34), distance 38.6 m
+WP2 GPS (25.0422240, 121.5377900, +10.0 m) -> ENU (E 16.56, N -29.53, U 9.34), distance 33.5 m
+WP3 GPS (25.0424000, 121.5374780, +10.0 m) -> ENU (E -14.87, N -9.96, U 9.34), distance 17.6 m
+[WAIT_READY] -> [PRE_STREAM]
+[PRE_STREAM] -> [ENGAGE]
+[ENGAGE] -> [TAKEOFF]
+[TAKEOFF] -> [GOTO]
+REACHED WP1: current GPS (25.0428250, 121.5376112), error 0.89 m from target
+[GOTO] -> [HOLD]
+After holding 3 s at WP1: error 0.36 m from target
+[HOLD] -> [GOTO]
+REACHED WP2: current GPS (25.0422321, 121.5377872), error 0.94 m from target
+[GOTO] -> [HOLD]
+After holding 3 s at WP2: error 0.16 m from target
+[HOLD] -> [GOTO]
+REACHED WP3: current GPS (25.0423980, 121.5374854), error 0.78 m from target
+[GOTO] -> [HOLD]
+After holding 3 s at WP3: error 0.01 m from target
+[HOLD] -> [LANDING]
+Landed and disarmed. Done.
+[LANDING] -> [DONE]
+--- PX4:
+WARN  [init] PX4_GZ_MODEL_NAME or PX4_GZ_MODEL not set using PX4_SIM_MODEL.
+INFO  [commander] LED: open /dev/led0 failed (22)
+INFO  [commander] Ready for takeoff!
+INFO  [commander] Armed by external command	
+INFO  [commander] Takeoff detected	
+INFO  [commander] Landing detected	
+INFO  [commander] Disarmed by landing	
+--- conclusion: drone landed and disarmed
